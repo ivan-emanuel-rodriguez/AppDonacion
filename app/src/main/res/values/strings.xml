@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">AppDonacion</string>
+
+
+    <string name="btn_iniciar_sesion">Iniciar Sesion</string>
+    <string name="btn_registrarse">Registrarse</string>
+
+
+    <string name="btn_inicioSesion">Iniciar Sesion</string>
+    <string name="btn_registro">Registrarse</string>
+
+    <string name="correo">Ingrese Correo</string>
+    <string name="bienvenida">Pagina de inicio</string>
+
+
+</resources>
