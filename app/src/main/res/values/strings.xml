@@ -10,6 +10,9 @@
     <string name="btn_registro">Registrarse</string>
 
     <string name="correo">Ingrese Correo</string>
+    <string name="contrasena">Ingrese Contraseña</string>
+    <string name="recontrasena">Reingrese Contraseña</string>
+
     <string name="bienvenida">Pagina de inicio</string>
 
 
