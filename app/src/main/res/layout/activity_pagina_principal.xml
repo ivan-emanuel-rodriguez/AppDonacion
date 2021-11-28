@@ -25,5 +25,15 @@
             android:fontFamily="sans-serif-black"
             android:gravity="center"
             android:text="@string/bienvenida" />
+        <Button
+            android:id="@+id/cerrarSesionBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:onClick="cerrarSesion"
+            android:text="@string/btn_cerrarSesion" />
+
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

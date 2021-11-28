@@ -2,18 +2,20 @@
     <string name="app_name">AppDonacion</string>
 
 
-    <string name="btn_iniciar_sesion">Iniciar Sesion</string>
+    <string name="btn_iniciar_sesion">Iniciar Sesión</string>
     <string name="btn_registrarse">Registrarse</string>
 
-
-    <string name="btn_inicioSesion">Iniciar Sesion</string>
+    <string name="btn_inicioSesion">Iniciar Sesión</string>
     <string name="btn_registro">Registrarse</string>
+    <string name="btn_cerrarSesion">Cerrar Sesión</string>
 
     <string name="correo">Ingrese Correo</string>
     <string name="contrasena">Ingrese Contraseña</string>
     <string name="recontrasena">Reingrese Contraseña</string>
 
-    <string name="bienvenida">Pagina de inicio</string>
+    <string name="bienvenida">Página de inicio</string>
+    <string name="title_item_list">Items</string>
+    <string name="title_item_detail">Item Detail</string>
 
 
 </resources>

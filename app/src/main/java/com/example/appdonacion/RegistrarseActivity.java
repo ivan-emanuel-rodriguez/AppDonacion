@@ -48,30 +48,33 @@ public class RegistrarseActivity extends AppCompatActivity {
     }
 
     public void registrarUsuario (View view){
-
-        if(contrasena.getText().toString().equals(contrasenaConfirmacion.getText().toString())){
-            mAuth.createUserWithEmailAndPassword(correo.getText().toString(), contrasena.getText().toString())
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                // Sign in success, update UI with the signed-in user's information
-                                //Log.d(TAG, "createUserWithEmail:success");
-                                Toast.makeText(getApplicationContext(), "Usuario creado.",Toast.LENGTH_SHORT).show();
-                                FirebaseUser user = mAuth.getCurrentUser();
-                                Intent i = new Intent(getApplicationContext(), PaginaPrincipalActivity.class);
-                                startActivity(i);
-                                //updateUI(user);
-                            } else {
-                                // If sign in fails, display a message to the user.
-                                //Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                                Toast.makeText(getApplicationContext(), "Authentication failed.",Toast.LENGTH_SHORT).show();
-                                //updateUI(null);
-                            }
-                        }
-                    });
+        if (correo.getText().toString().isEmpty() || contrasena.getText().toString().isEmpty() || contrasenaConfirmacion.getText().toString().isEmpty() ) {
+            Toast.makeText(this, "Error: Debe completar todos los campos", Toast.LENGTH_SHORT).show();
         }else{
-            Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
+            if(contrasena.getText().toString().equals(contrasenaConfirmacion.getText().toString())){
+                mAuth.createUserWithEmailAndPassword(correo.getText().toString(), contrasena.getText().toString())
+                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    // Sign in success, update UI with the signed-in user's information
+                                    //Log.d(TAG, "createUserWithEmail:success");
+                                    Toast.makeText(getApplicationContext(), "Usuario creado.",Toast.LENGTH_SHORT).show();
+                                    FirebaseUser user = mAuth.getCurrentUser();
+                                    Intent i = new Intent(getApplicationContext(), PaginaPrincipalActivity.class);
+                                    startActivity(i);
+                                    //updateUI(user);
+                                } else {
+                                    // If sign in fails, display a message to the user.
+                                    //Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                                    Toast.makeText(getApplicationContext(), "Authentication failed.",Toast.LENGTH_SHORT).show();
+                                    //updateUI(null);
+                                }
+                            }
+                        });
+            }else{
+                Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }
