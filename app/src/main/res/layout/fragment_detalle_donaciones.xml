@@ -1,0 +1,21 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginTop="20dp"
+    tools:context="fragments.DetalleDonacionesFragment">
+
+    <ImageView
+        android:id="@+id/imagenDetalleId"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:src="@drawable/arroz"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:id="@+id/descripcionId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Descripcion"/>
+</LinearLayout>

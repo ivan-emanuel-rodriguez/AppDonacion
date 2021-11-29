@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">AppDonacion</string>
 
-
+    <!---Login-->
     <string name="btn_iniciar_sesion">Iniciar Sesión</string>
     <string name="btn_registrarse">Registrarse</string>
 
@@ -13,9 +13,30 @@
     <string name="contrasena">Ingrese Contraseña</string>
     <string name="recontrasena">Reingrese Contraseña</string>
 
-    <string name="bienvenida">Página de inicio</string>
-    <string name="title_item_list">Items</string>
-    <string name="title_item_detail">Item Detail</string>
+
+    <!---Maestro/Detalle-->
+    <string name="bienvenida">Lista de donaciones</string>
+
+    <!---Nombres-->
+    <string name="aceite">Aceite</string>
+    <string name="arroz">Arroz</string>
+    <string name="fideo">Fideos</string>
+    <string name="lenteja">Lentejas</string>
+    <string name="polenta">Polenta</string>
+
+    <!---Informacion-->
+    <string name="aceiteInfo">Botella aceite girasol</string>
+    <string name="arrozInfo">Paquete de arroz</string>
+    <string name="fideoInfo">Paquete de fideo</string>
+    <string name="lentejaInfo">Paquete de lenteja</string>
+    <string name="polentaInfo">Paquete de polenta</string>
+
+    <!---Descripcion-->
+    <string name="aceiteDesc">Tengo dos botellas de aceite girasol para donar</string>
+    <string name="arrozDesc">Tengo cuatro paquetes de arroz marca Aliada para donar</string>
+    <string name="fideoDesc">Tengo ocho paquetess de fideos marca Molitalia para donar</string>
+    <string name="lentejaDesc">Tengo tres paquetes de lentejas para donar</string>
+    <string name="polentaDesc">Tengo diez paquetes de polenta marca Presto Pronta para donar</string>
 
 
 </resources>
