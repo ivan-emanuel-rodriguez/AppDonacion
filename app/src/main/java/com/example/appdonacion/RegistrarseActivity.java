@@ -3,10 +3,14 @@ package com.example.appdonacion;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -19,10 +23,8 @@ public class RegistrarseActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
 
-    private EditText correo;
-    private EditText contrasena;
-    private EditText contrasenaConfirmacion;
-
+    private EditText correo,nombreUsuario,localidad,contrasena,contrasenaConfirmacion;
+    private TextView textCorreo, textUsuario, textLocalidad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +34,15 @@ public class RegistrarseActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         correo = findViewById(R.id.correo);
+        nombreUsuario= findViewById(R.id.nombre);
+        localidad = findViewById(R.id.localidad);
         contrasena = findViewById(R.id.contrasena);
         contrasenaConfirmacion = findViewById(R.id.contrasenaConfirmacion);
-
+        
+        //cargarPreferencias();
 
     }
+
 
     public void onStart() {
         super.onStart();
@@ -48,7 +54,8 @@ public class RegistrarseActivity extends AppCompatActivity {
     }
 
     public void registrarUsuario (View view){
-        if (correo.getText().toString().isEmpty() || contrasena.getText().toString().isEmpty() || contrasenaConfirmacion.getText().toString().isEmpty() ) {
+        if (correo.getText().toString().isEmpty() || contrasena.getText().toString().isEmpty() || contrasenaConfirmacion.getText().toString().isEmpty()
+                || nombreUsuario.getText().toString().isEmpty() || localidad.getText().toString().isEmpty()) {
             Toast.makeText(this, "Error: Debe completar todos los campos", Toast.LENGTH_SHORT).show();
         }else{
             if(contrasena.getText().toString().equals(contrasenaConfirmacion.getText().toString())){
@@ -61,6 +68,7 @@ public class RegistrarseActivity extends AppCompatActivity {
                                     //Log.d(TAG, "createUserWithEmail:success");
                                     Toast.makeText(getApplicationContext(), "Usuario creado.",Toast.LENGTH_SHORT).show();
                                     FirebaseUser user = mAuth.getCurrentUser();
+                                    //guardarPreferencias();
                                     Intent i = new Intent(getApplicationContext(), PaginaPrincipalActivity.class);
                                     startActivity(i);
                                     //updateUI(user);
@@ -76,5 +84,45 @@ public class RegistrarseActivity extends AppCompatActivity {
                 Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+
+    private void cargarPreferencias() {
+        SharedPreferences preferences=getSharedPreferences("datosUsuario", Context.MODE_PRIVATE);
+        String nombreMail=preferences.getString("email","No existe info");
+        String nombreUser=preferences.getString("user","No existe info");
+        String nombreLocalidad=preferences.getString("location","No existe info");
+
+        textCorreo.setText(nombreMail);
+        textUsuario.setText(nombreUser);
+        textLocalidad.setText(nombreLocalidad);
+    }
+
+
+    private void guardarPreferencias(){
+        //Creo archivo de preferencias y almaceno datos de usuario
+        SharedPreferences preferences=getSharedPreferences("datosUsuario", Context.MODE_PRIVATE);
+        String mail = correo.getText().toString();
+        String usuario = nombreUsuario.getText().toString();
+        String localidadNombre = localidad.getText().toString();
+
+        //Guardo los datos en el archivo datosUsuario
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("email", mail);
+        editor.putString("user",usuario);
+        editor.putString("location", localidadNombre);
+
+        textCorreo.setText(mail);
+        textUsuario.setText(usuario);
+        textLocalidad.setText(localidadNombre);
+
+        editor.commit();
+
+    }
+
+    public void irInicio(View view){
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
+
     }
 }

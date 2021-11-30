@@ -7,11 +7,14 @@
 
     <string name="btn_inicioSesion">Iniciar Sesión</string>
     <string name="btn_registro">Registrarse</string>
+    <string name="btn_volver">Volver a inicio</string>
     <string name="btn_cerrarSesion">Cerrar Sesión</string>
 
-    <string name="correo">Ingrese Correo</string>
-    <string name="contrasena">Ingrese Contraseña</string>
-    <string name="recontrasena">Reingrese Contraseña</string>
+    <string name="correo">Correo</string>
+    <string name="nombre">Nombre de usuario</string>
+    <string name="localidad">Localidad</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="recontrasena">Confirmación de contraseña</string>
 
 
     <!---Maestro/Detalle-->
