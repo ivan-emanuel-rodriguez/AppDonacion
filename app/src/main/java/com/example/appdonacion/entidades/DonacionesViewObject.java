@@ -1,4 +1,4 @@
-package entidades;
+package com.example.appdonacion.entidades;
 
 import java.io.Serializable;
 

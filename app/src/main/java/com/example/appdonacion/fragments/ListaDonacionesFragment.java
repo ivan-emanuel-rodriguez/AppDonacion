@@ -1,4 +1,4 @@
-package fragments;
+package com.example.appdonacion.fragments;
 
 import android.app.Activity;
 import android.content.Context;
@@ -21,8 +21,8 @@ import com.example.appdonacion.R;
 
 import java.util.ArrayList;
 
-import adaptadores.AdaptadorDonaciones;
-import entidades.DonacionesViewObject;
+import com.example.appdonacion.adaptadores.AdaptadorDonaciones;
+import com.example.appdonacion.entidades.DonacionesViewObject;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -122,10 +122,10 @@ public class ListaDonacionesFragment extends Fragment {
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         //Consulto si el contexto es instancia de una activity y luego llamo ese contexto a mi interface
-        if(context instanceof Activity ){
-            this.activity= (Activity) context;
-            interfaceComunicaFragments= (InterfaceComunicaFragments) this.activity;
-        }
+      //  if(context instanceof Activity ){
+        //      this.activity= (Activity) context;
+        //  interfaceComunicaFragments= (InterfaceComunicaFragments) this.activity;
+        //}
     }
 
 }

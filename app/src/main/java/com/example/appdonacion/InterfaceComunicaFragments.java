@@ -1,6 +1,6 @@
 package com.example.appdonacion;
 
-import entidades.DonacionesViewObject;
+import com.example.appdonacion.entidades.DonacionesViewObject;
 
 public interface InterfaceComunicaFragments {
 

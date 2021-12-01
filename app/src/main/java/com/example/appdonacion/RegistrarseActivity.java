@@ -66,10 +66,16 @@ public class RegistrarseActivity extends AppCompatActivity {
                                     Toast.makeText(getApplicationContext(), "Usuario creado.",Toast.LENGTH_SHORT).show();
                                     FirebaseUser user = mAuth.getCurrentUser();
                                     //Shared preferences
-                                    DonacionSharePreferences.setUsuario(getApplicationContext(),
-                                    nombreUsuario.getText().toString(),localidad.getText().toString(),correo.getText().toString());
-                                    DonacionSharePreferences.setNombreUsuario(getApplicationContext(), user.getDisplayName());
-                                    DonacionSharePreferences.setRecordarUser(getApplicationContext(), true);
+
+
+                                    //ir a la base de usuarios, y guardar uno nuevo con el user uid ,ubicación y lo que quieran
+
+
+
+                                    //DonacionSharePreferences.setUsuario(getApplicationContext(),
+                                    //nombreUsuario.getText().toString(),localidad.getText().toString(),correo.getText().toString());
+                                    //DonacionSharePreferences.setNombreUsuario(getApplicationContext(), user.getDisplayName());
+                                    //DonacionSharePreferences.setRecordarUser(getApplicationContext(), true);
                                     Intent i = new Intent(getApplicationContext(), PaginaPrincipalActivity.class);
                                     startActivity(i);
                                     //updateUI(user);

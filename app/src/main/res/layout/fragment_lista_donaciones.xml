@@ -17,7 +17,7 @@
         android:layout_height="match_parent"
         android:layout_marginTop="65dp"
         android:layout_marginBottom="65dp"
-        tools:context="fragments.ListaDonacionesFragment">
+        tools:context="com.example.appdonacion.fragments.ListaDonacionesFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerId"

@@ -1,4 +1,4 @@
-package fragments;
+package com.example.appdonacion.fragments;
 
 import android.os.Bundle;
 
@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.example.appdonacion.R;
 
-import entidades.DonacionesViewObject;
+import com.example.appdonacion.entidades.DonacionesViewObject;
 
 /**
  * A simple {@link Fragment} subclass.

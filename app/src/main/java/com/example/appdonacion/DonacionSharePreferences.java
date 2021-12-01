@@ -36,6 +36,16 @@ public abstract class DonacionSharePreferences {
         android.content.SharedPreferences sharedPrefRead = context.getSharedPreferences(NOMBRE_USUARIO, Context.MODE_PRIVATE);
         return sharedPrefRead.getString(NOMBRE_USUARIO, "");
     }
+    public static void setCorreo(Context context, String correo) {
+        android.content.SharedPreferences sharedPref = context.getSharedPreferences(CORREO, Context.MODE_PRIVATE);
+        android.content.SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString(CORREO, correo);
+        editor.apply();
+    }
+    public static String getCorreo(Context context) {
+        android.content.SharedPreferences sharedPrefRead = context.getSharedPreferences(CORREO, Context.MODE_PRIVATE);
+        return sharedPrefRead.getString(CORREO, "");
+    }
 
     public static void setRecordarUser(Context context, Boolean isRemember) {
         android.content.SharedPreferences sharedPref = context.getSharedPreferences(NOMBRE_USUARIO, Context.MODE_PRIVATE);

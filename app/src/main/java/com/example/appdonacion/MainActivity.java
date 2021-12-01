@@ -46,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
             currentUser.reload();
+            //tabla de usuarios, te traes los datos de ese usaurio y lo guardar sharepreferences
+
             Intent i = new Intent(getApplicationContext(), PaginaPrincipalActivity.class);
             startActivity(i);
         }
@@ -64,6 +66,10 @@ public class MainActivity extends AppCompatActivity {
                                 // Sign in success, update UI with the signed-in user's information
                                 //Log.d(TAG, "signInWithEmail:success");
                                 FirebaseUser user = mAuth.getCurrentUser();
+
+                                DonacionSharePreferences.setCorreo(getApplicationContext(), correo.getText().toString());
+                                DonacionSharePreferences.setNombreUsuario(getApplicationContext(), user.getDisplayName());
+                                DonacionSharePreferences.setRecordarUser(getApplicationContext(), true);
 
                                 //Inicio sesion correctamente
                                 Toast.makeText(getApplicationContext(), "Ha iniciado sesion correctamente",Toast.LENGTH_SHORT).show();

@@ -1,4 +1,4 @@
-package adaptadores;
+package com.example.appdonacion.adaptadores;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,11 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appdonacion.R;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
-import entidades.DonacionesViewObject;
+import com.example.appdonacion.entidades.DonacionesViewObject;
 
 public class AdaptadorDonaciones extends RecyclerView.Adapter<AdaptadorDonaciones.ViewHolderDonaciones> implements View.OnClickListener{
     //Creo la lista de donaciones y su constructor
