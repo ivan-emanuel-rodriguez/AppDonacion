@@ -12,8 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.appdonacion.DonacionSharePreferences;
 import com.example.appdonacion.InterfaceComunicaFragments;
 import com.example.appdonacion.R;
 
@@ -101,6 +103,9 @@ public class ListaDonacionesFragment extends Fragment {
                 interfaceComunicaFragments.enviarDonacion(listaDonaciones.get(recyclerDonaciones.getChildAdapterPosition(view)));
             }
         });
+
+        TextView tituloTextView= vista.findViewById(R.id.textUsuarioId);
+        tituloTextView.setText(DonacionSharePreferences.getUsuario(getContext()));
 
         return vista;
     }
