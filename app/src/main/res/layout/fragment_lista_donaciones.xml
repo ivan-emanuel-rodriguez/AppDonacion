@@ -4,14 +4,13 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/bienvenida"
+        android:id="@+id/textUsuarioId"
         android:layout_width="match_parent"
         android:layout_height="36dp"
         android:layout_marginTop="15dp"
         android:fontFamily="sans-serif-black"
-        android:textSize="28sp"
         android:gravity="center"
-        android:text="@string/bienvenida" />
+        android:textSize="28sp" />
 
     <FrameLayout
         android:layout_width="match_parent"

@@ -24,7 +24,6 @@ public class RegistrarseActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
     private EditText correo,nombreUsuario,localidad,contrasena,contrasenaConfirmacion;
-    private TextView textCorreo, textUsuario, textLocalidad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +37,6 @@ public class RegistrarseActivity extends AppCompatActivity {
         localidad = findViewById(R.id.localidad);
         contrasena = findViewById(R.id.contrasena);
         contrasenaConfirmacion = findViewById(R.id.contrasenaConfirmacion);
-        
-        //cargarPreferencias();
 
     }
 
@@ -68,7 +65,11 @@ public class RegistrarseActivity extends AppCompatActivity {
                                     //Log.d(TAG, "createUserWithEmail:success");
                                     Toast.makeText(getApplicationContext(), "Usuario creado.",Toast.LENGTH_SHORT).show();
                                     FirebaseUser user = mAuth.getCurrentUser();
-                                    //guardarPreferencias();
+                                    //Shared preferences
+                                    DonacionSharePreferences.setUsuario(getApplicationContext(),
+                                    nombreUsuario.getText().toString(),localidad.getText().toString(),correo.getText().toString());
+                                    DonacionSharePreferences.setNombreUsuario(getApplicationContext(), user.getDisplayName());
+                                    DonacionSharePreferences.setRecordarUser(getApplicationContext(), true);
                                     Intent i = new Intent(getApplicationContext(), PaginaPrincipalActivity.class);
                                     startActivity(i);
                                     //updateUI(user);
@@ -87,38 +88,7 @@ public class RegistrarseActivity extends AppCompatActivity {
     }
 
 
-    private void cargarPreferencias() {
-        SharedPreferences preferences=getSharedPreferences("datosUsuario", Context.MODE_PRIVATE);
-        String nombreMail=preferences.getString("email","No existe info");
-        String nombreUser=preferences.getString("user","No existe info");
-        String nombreLocalidad=preferences.getString("location","No existe info");
 
-        textCorreo.setText(nombreMail);
-        textUsuario.setText(nombreUser);
-        textLocalidad.setText(nombreLocalidad);
-    }
-
-
-    private void guardarPreferencias(){
-        //Creo archivo de preferencias y almaceno datos de usuario
-        SharedPreferences preferences=getSharedPreferences("datosUsuario", Context.MODE_PRIVATE);
-        String mail = correo.getText().toString();
-        String usuario = nombreUsuario.getText().toString();
-        String localidadNombre = localidad.getText().toString();
-
-        //Guardo los datos en el archivo datosUsuario
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("email", mail);
-        editor.putString("user",usuario);
-        editor.putString("location", localidadNombre);
-
-        textCorreo.setText(mail);
-        textUsuario.setText(usuario);
-        textLocalidad.setText(localidadNombre);
-
-        editor.commit();
-
-    }
 
     public void irInicio(View view){
         Intent i = new Intent(this, MainActivity.class);

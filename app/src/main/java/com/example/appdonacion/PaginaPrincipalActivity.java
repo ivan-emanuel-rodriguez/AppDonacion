@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,6 +28,7 @@ public class PaginaPrincipalActivity extends AppCompatActivity implements Interf
 
 
     private FirebaseAuth mAuth;
+   // private TextView textNombre;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,11 @@ public class PaginaPrincipalActivity extends AppCompatActivity implements Interf
         setContentView(R.layout.activity_pagina_principal);
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
+        //textNombre = findViewById(R.id.textUsuarioId);
+
+        //if (mAuth.getCurrentUser()!= null){
+        //    textNombre.setText(DonacionSharePreferences.getUsuario(getApplicationContext()));
+       // }
 
         //Instancio el fragment de lista de donaciones
         listaFragment=new ListaDonacionesFragment();

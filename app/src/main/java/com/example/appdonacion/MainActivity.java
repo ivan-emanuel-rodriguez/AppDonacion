@@ -3,10 +3,12 @@ package com.example.appdonacion;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText correo;
     private EditText contrasena;
     private FirebaseAuth mAuth;
+
 
 
     @Override
@@ -48,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
     public void iniciarSesion(View view){
         if (correo.getText().toString().isEmpty() || contrasena.getText().toString().isEmpty() ){
             Toast.makeText(this, "Error: Debe ingresar un usuario y contraseña validos", Toast.LENGTH_SHORT).show();
@@ -60,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
                                 // Sign in success, update UI with the signed-in user's information
                                 //Log.d(TAG, "signInWithEmail:success");
                                 FirebaseUser user = mAuth.getCurrentUser();
+
+                                //Inicio sesion correctamente
                                 Toast.makeText(getApplicationContext(), "Ha iniciado sesion correctamente",Toast.LENGTH_SHORT).show();
                                 Intent i = new Intent(getApplicationContext(), PaginaPrincipalActivity.class);
                                 startActivity(i);
