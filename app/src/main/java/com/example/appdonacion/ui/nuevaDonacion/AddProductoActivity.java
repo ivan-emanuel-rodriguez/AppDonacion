@@ -23,12 +23,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import java.util.HashMap;
-import java.util.Map;
 
-/**
- * Created by reino on 1/12/2021.
- */
 public class AddProductoActivity extends AppCompatActivity {
     private Button btnsubir;
     private EditText nombre;

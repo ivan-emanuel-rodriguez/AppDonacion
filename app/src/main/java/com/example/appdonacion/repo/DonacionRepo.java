@@ -37,11 +37,11 @@ public abstract class DonacionRepo {
 
                     listaDonaciones.add(donacion);
                 }
-
-                callback.showLista(listaDonaciones);
-            } else {
-                getDonacionesDemo(context, callback);
             }
+                callback.showLista(listaDonaciones);
+//            } else {
+//               getDonacionesDemo(context, callback);
+//            }
         });
     }
 
