@@ -1,15 +1,13 @@
 package com.example.appdonacion;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -22,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
     private EditText correo;
     private EditText contrasena;
     private FirebaseAuth mAuth;
-
 
 
     @Override
@@ -44,20 +41,20 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
+        if (currentUser != null) {
             currentUser.reload();
             //tabla de usuarios, te traes los datos de ese usaurio y lo guardar sharepreferences
 
-            Intent i = new Intent(getApplicationContext(), PaginaPrincipalActivity.class);
+            Intent i = new Intent(getApplicationContext(), ListaDonacionActivity.class);
             startActivity(i);
         }
     }
 
 
-    public void iniciarSesion(View view){
-        if (correo.getText().toString().isEmpty() || contrasena.getText().toString().isEmpty() ){
+    public void iniciarSesion(View view) {
+        if (correo.getText().toString().isEmpty() || contrasena.getText().toString().isEmpty()) {
             Toast.makeText(this, "Error: Debe ingresar un usuario y contraseña validos", Toast.LENGTH_SHORT).show();
-        }else{
+        } else {
             mAuth.signInWithEmailAndPassword(correo.getText().toString(), contrasena.getText().toString())
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
@@ -72,8 +69,8 @@ public class MainActivity extends AppCompatActivity {
                                 DonacionSharePreferences.setRecordarUser(getApplicationContext(), true);
 
                                 //Inicio sesion correctamente
-                                Toast.makeText(getApplicationContext(), "Ha iniciado sesion correctamente",Toast.LENGTH_SHORT).show();
-                                Intent i = new Intent(getApplicationContext(), PaginaPrincipalActivity.class);
+                                Toast.makeText(getApplicationContext(), "Ha iniciado sesion correctamente", Toast.LENGTH_SHORT).show();
+                                Intent i = new Intent(getApplicationContext(), ListaDonacionActivity.class);
                                 startActivity(i);
                                 //updateUI(user);
                             } else {
@@ -91,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void irRegistrarse(View view){
+    public void irRegistrarse(View view) {
         Intent i = new Intent(this, RegistrarseActivity.class);
         startActivity(i);
 

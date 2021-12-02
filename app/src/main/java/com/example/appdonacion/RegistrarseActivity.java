@@ -1,17 +1,13 @@
 package com.example.appdonacion;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -23,7 +19,7 @@ public class RegistrarseActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
 
-    private EditText correo,nombreUsuario,localidad,contrasena,contrasenaConfirmacion;
+    private EditText correo, nombreUsuario, localidad, contrasena, contrasenaConfirmacion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +29,7 @@ public class RegistrarseActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         correo = findViewById(R.id.correo);
-        nombreUsuario= findViewById(R.id.nombre);
+        nombreUsuario = findViewById(R.id.nombre);
         localidad = findViewById(R.id.localidad);
         contrasena = findViewById(R.id.contrasena);
         contrasenaConfirmacion = findViewById(R.id.contrasenaConfirmacion);
@@ -50,12 +46,12 @@ public class RegistrarseActivity extends AppCompatActivity {
         //}
     }
 
-    public void registrarUsuario (View view){
+    public void registrarUsuario(View view) {
         if (correo.getText().toString().isEmpty() || contrasena.getText().toString().isEmpty() || contrasenaConfirmacion.getText().toString().isEmpty()
                 || nombreUsuario.getText().toString().isEmpty() || localidad.getText().toString().isEmpty()) {
             Toast.makeText(this, "Error: Debe completar todos los campos", Toast.LENGTH_SHORT).show();
-        }else{
-            if(contrasena.getText().toString().equals(contrasenaConfirmacion.getText().toString())){
+        } else {
+            if (contrasena.getText().toString().equals(contrasenaConfirmacion.getText().toString())) {
                 mAuth.createUserWithEmailAndPassword(correo.getText().toString(), contrasena.getText().toString())
                         .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                             @Override
@@ -63,7 +59,7 @@ public class RegistrarseActivity extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     // Sign in success, update UI with the signed-in user's information
                                     //Log.d(TAG, "createUserWithEmail:success");
-                                    Toast.makeText(getApplicationContext(), "Usuario creado.",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "Usuario creado.", Toast.LENGTH_SHORT).show();
                                     FirebaseUser user = mAuth.getCurrentUser();
                                     //Shared preferences
 
@@ -71,32 +67,29 @@ public class RegistrarseActivity extends AppCompatActivity {
                                     //ir a la base de usuarios, y guardar uno nuevo con el user uid ,ubicación y lo que quieran
 
 
-
                                     //DonacionSharePreferences.setUsuario(getApplicationContext(),
                                     //nombreUsuario.getText().toString(),localidad.getText().toString(),correo.getText().toString());
                                     //DonacionSharePreferences.setNombreUsuario(getApplicationContext(), user.getDisplayName());
                                     //DonacionSharePreferences.setRecordarUser(getApplicationContext(), true);
-                                    Intent i = new Intent(getApplicationContext(), PaginaPrincipalActivity.class);
+                                    Intent i = new Intent(getApplicationContext(), ListaDonacionActivity.class);
                                     startActivity(i);
                                     //updateUI(user);
                                 } else {
                                     // If sign in fails, display a message to the user.
                                     //Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                                    Toast.makeText(getApplicationContext(), "Authentication failed.",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "Authentication failed.", Toast.LENGTH_SHORT).show();
                                     //updateUI(null);
                                 }
                             }
                         });
-            }else{
+            } else {
                 Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
             }
         }
     }
 
 
-
-
-    public void irInicio(View view){
+    public void irInicio(View view) {
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
 

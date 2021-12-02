@@ -7,18 +7,25 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.appdonacion.fragments.ListaDonacionesFragment"
-        android:label="@string/menu_home" />
+        android:name="com.example.appdonacion.ui.listadoDonaciones.ListaDonacionesFragment"
+        android:label="@string/app_name" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.appdonacion.ui.gallery.GalleryFragment"
-        android:label="Acerca de nosotros"
+        android:id="@+id/nav_mapa"
+        android:name="com.example.appdonacion.ui.maps.MapsFragment"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
+        android:id="@+id/nav_ajustes"
         android:name="com.example.appdonacion.ui.slideshow.SlideshowFragment"
-        android:label="Info adicional"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_nosotros"
+        android:name="com.example.appdonacion.ui.slideshow.SlideshowFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_slideshow" />
+
 </navigation>

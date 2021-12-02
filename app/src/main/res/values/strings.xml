@@ -51,6 +51,12 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_donaciones">Donaciones</string>
+
+    <string name="menu_mapa">Mapa</string>
+    <string name="menu_info">Configuración</string>
+    <string name="menu_nosotros">Acerca de nosotros</string>
+    <string name="logout">Cerrar sesión</string>
 
 
 </resources>

@@ -10,7 +10,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import com.example.appdonacion.entidades.DonacionesViewObject;
 import com.example.appdonacion.fragments.DetalleDonacionesFragment;
-import com.example.appdonacion.fragments.ListaDonacionesFragment;
+import com.example.appdonacion.ui.listadoDonaciones.ListaDonacionesFragment;
 
 public class PaginaPrincipalActivity extends AppCompatActivity implements InterfaceComunicaFragments {
 

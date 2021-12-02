@@ -9,20 +9,19 @@ public class DonacionesViewObject implements Serializable {
     private int imagenId;
     private String descripcionDetallada;
     private int imagenDetallada;
+    private String urlImagen;
 
 
-
-    public DonacionesViewObject(){
+    public DonacionesViewObject() {
 
     }
 
-    public DonacionesViewObject(String nombre, String info, String descripcionDetallada, int imagenId, int imagenDetallada){
+    public DonacionesViewObject(String nombre, String info, String descripcionDetallada, int imagenId, int imagenDetallada) {
         this.nombre = nombre;
         this.info = info;
         this.descripcionDetallada = descripcionDetallada;
         this.imagenId = imagenId;
         this.imagenDetallada = imagenDetallada;
-
     }
 
     public String getDescripcionDetallada() {
@@ -42,21 +41,34 @@ public class DonacionesViewObject implements Serializable {
     }
 
     public String getNombre() {
-        return  nombre;
+        return nombre;
     }
-    public void setNombre (String nombre){
+
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    public String getInfo(){
+
+    public String getInfo() {
         return info;
     }
-    public void setInfo(String info){
+
+    public void setInfo(String info) {
         this.info = info;
     }
-    public int getImagenId(){
+
+    public int getImagenId() {
         return imagenId;
     }
-    public void setImagenId(int imagenId){
+
+    public void setImagenId(int imagenId) {
         this.imagenId = imagenId;
+    }
+
+    public String getUrlImagen() {
+        return urlImagen;
+    }
+
+    public void setUrlImagen(String urlImagen) {
+        this.urlImagen = urlImagen;
     }
 }
