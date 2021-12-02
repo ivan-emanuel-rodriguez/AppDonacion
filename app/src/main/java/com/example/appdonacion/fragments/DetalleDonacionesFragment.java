@@ -75,7 +75,7 @@ public class DetalleDonacionesFragment extends Fragment {
 
         Bundle objetoDonacion=getArguments();
         DonacionesViewObject donacion=null;
-        //Verifico que DonacionesViewObjecthaya un objeto donacion a mostrar
+        //Verifico que DonacionesViewObject haya un objeto donacion a mostrar
         if (objetoDonacion != null) {
             donacion= (DonacionesViewObject) objetoDonacion.getSerializable("objeto");
             imagenDetalle.setImageResource(donacion.getImagenDetallada());

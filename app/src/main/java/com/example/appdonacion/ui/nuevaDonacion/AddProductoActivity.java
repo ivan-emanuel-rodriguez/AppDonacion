@@ -10,11 +10,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.example.appdonacion.DonacionSharePreferences;
 import com.example.appdonacion.R;
 import com.example.appdonacion.repo.DonacionRepo;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -35,6 +37,7 @@ public class AddProductoActivity extends AppCompatActivity {
     private ImageView myImageView;
     private ProgressDialog progressDialog;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private TextView correoUser;
     private String urlImagen = "";
 
     @Override
@@ -49,6 +52,7 @@ public class AddProductoActivity extends AppCompatActivity {
         }
 
         myStorage = FirebaseStorage.getInstance().getReference();
+        correoUser = (TextView) findViewById(R.id.correoUser);
 
         btnsubir = (Button) findViewById(R.id.btn_subir_producto);
         nombre = findViewById(R.id.nombretv);
@@ -60,6 +64,7 @@ public class AddProductoActivity extends AppCompatActivity {
 
         btnsubir.setOnClickListener(pushListener);
         btn_imagen.setOnClickListener(ImagenUpload);
+        correoUser.setText(DonacionSharePreferences.getCorreo(getApplicationContext()));
     }
 
     @Override
