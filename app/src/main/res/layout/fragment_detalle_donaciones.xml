@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_marginTop="20dp"
-    tools:context="fragments.DetalleDonacionesFragment">
+    tools:context="com.example.appdonacion.fragments.DetalleDonacionesFragment">
 
     <ImageView
         android:id="@+id/imagenDetalleId"
