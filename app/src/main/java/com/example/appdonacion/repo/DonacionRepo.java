@@ -60,14 +60,22 @@ public abstract class DonacionRepo {
         callback.showLista(listaDonaciones);
     }
 
-    public static void guardarDonacion(String name, String desc, String cant, String url) {
+    public static void guardarDonacion(String nombre_User, String correo_User,
+                                       String ubi_User, String name, String desc,
+                                       String detalles,String cant, String url) {
+
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        Map<String, Object> map = new HashMap<>();
-        map.put("nombre", name);
-        map.put("descripcion", desc);
-        map.put("cantidad", cant);
-        map.put("imagen", url);
+        Map<String,Object> map = new HashMap<>();
+        map.put("nombreUsuario",nombre_User);
+        map.put("correo",correo_User);
+        map.put("direccion",ubi_User);
+        map.put("nombre",name);
+        map.put("descripcion",desc);
+        map.put("detalles",detalles);
+        map.put("cantidad",cant);
+        map.put("imagen",url);
+
         db.collection("producto").document().set(
                 map
         );
