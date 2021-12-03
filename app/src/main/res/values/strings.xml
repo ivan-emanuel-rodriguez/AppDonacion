@@ -18,7 +18,7 @@
 
 
     <!---Maestro/Detalle-->
-    <string name="bienvenida">Lista de donaciones</string>
+    <string name="donaciones">Listado de productos donados:</string>
 
     <!---Nombres-->
     <string name="aceite">Aceite</string>
