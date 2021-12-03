@@ -26,6 +26,7 @@ public abstract class DonacionRepo {
                     String nombre = document.getString("nombre");
                     String descripcion = document.getString("descripcion");
                     String imagen = document.getString("imagen");
+                    String usuario = document.getString("usuario");
                     String cantidad = document.getString("cantidad");
                     String direccion = document.getString("direccion");
                     Double latitud = document.getDouble("latitud");
@@ -35,6 +36,8 @@ public abstract class DonacionRepo {
 
                     donacion.setNombre(nombre);
                     donacion.setDescripcionDetallada(descripcion);
+                    donacion.setNombreUsuario(usuario);
+                    donacion.setNombreUbi(direccion);
                     donacion.setUrlImagen(imagen);
                     donacion.setLatitud(latitud);
                     donacion.setLongitud(longitud);
