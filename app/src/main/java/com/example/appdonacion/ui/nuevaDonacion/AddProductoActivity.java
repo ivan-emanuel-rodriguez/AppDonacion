@@ -82,11 +82,6 @@ public class AddProductoActivity extends AppCompatActivity {
         btn_imagen.setOnClickListener(ImagenUpload);
         correoUser.setText(DonacionSharePreferences.getCorreo(getApplicationContext()));
 
-
-        LocationProvider.requestCurrentLocation(getApplicationContext(), location -> {
-
-        });
-
     }
 
     @Override
