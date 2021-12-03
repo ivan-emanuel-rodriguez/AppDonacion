@@ -25,6 +25,9 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class AddProductoActivity extends AppCompatActivity {
     private Button btnsubir;
@@ -39,7 +42,9 @@ public class AddProductoActivity extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private TextView correoUser;
     private String urlImagen = "";
-
+    private EditText ubiUser;
+    private EditText nombreUser;
+    private EditText detailDon;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +61,13 @@ public class AddProductoActivity extends AppCompatActivity {
 
         btnsubir = (Button) findViewById(R.id.btn_subir_producto);
         nombre = findViewById(R.id.nombretv);
+        nombreUser = findViewById(R.id.nombreUser);
+        ubiUser = findViewById(R.id.ubiUser);
+        detailDon = findViewById(R.id.detailDon);
+
+
+
+
         descripcion = findViewById(R.id.descripciontv);
         cantidad = findViewById(R.id.cantidadtv);
         btn_imagen = (Button) findViewById(R.id.btn_imagen);
@@ -78,23 +90,6 @@ public class AddProductoActivity extends AppCompatActivity {
     private View.OnClickListener pushListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            // Muestro el mensaje "De nada"
-            /*
-            Toast.makeText(AddProduct.this, "Holaa",
-
-                    Toast.LENGTH_LONG).show();
-            String name = nombre.getText().toString();
-            String description = descripcion.getText().toString();
-            String cant = cantidad.getText().toString();
-
-            Map<String,Object> map = new HashMap<>();
-            map.put("nombre",name);
-            map.put("descripcion",description);
-            map.put("cantidad",cant);
-            db.collection("producto").document().set(
-                    map
-            );
-            */
             addToStorage(urlImagen);
         }
     };
@@ -147,14 +142,21 @@ public class AddProductoActivity extends AppCompatActivity {
 
     public void addToStorage(String url) {
 
+        String nombre_User = nombreUser.getText().toString();
+        String correo_User = correoUser.getText().toString();
+        String ubi_User = ubiUser.getText().toString();
         String name = nombre.getText().toString();
         String desc = descripcion.getText().toString();
+        String detalles = detailDon.getText().toString();
         String cant = cantidad.getText().toString();
 
-        DonacionRepo.guardarDonacion(name, desc, cant, url);
+        DonacionRepo.guardarDonacion(nombre_User, correo_User, ubi_User,
+                name, desc, detalles, cant, url);
+
 
         Toast.makeText(getApplicationContext(), "Producto Agregado",
                 Toast.LENGTH_LONG).show();
+
         finish();
     }
 }

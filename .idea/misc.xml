@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/User/Documents/AplicacionesMov/AppDonacion/app/src/main/res/layout/activity_add_product.xml" value="0.22" />
+        <entry key="..\:/Users/User/Documents/AplicacionesMov/AppDonacion/app/src/main/res/layout/activity_listado_donacion.xml" value="0.11203703703703703" />
+        <entry key="..\:/Users/User/Documents/AplicacionesMov/AppDonacion/app/src/main/res/layout/activity_main.xml" value="0.1175925925925926" />
+        <entry key="..\:/Users/User/Documents/AplicacionesMov/AppDonacion/app/src/main/res/layout/activity_pagina_principal.xml" value="0.1175925925925926" />
+        <entry key="..\:/Users/User/Documents/AplicacionesMov/AppDonacion/app/src/main/res/layout/activity_registrarse.xml" value="0.11203703703703703" />
+        <entry key="..\:/Users/User/Documents/AplicacionesMov/AppDonacion/app/src/main/res/layout/app_bar_main.xml" value="0.11203703703703703" />
+        <entry key="..\:/Users/User/Documents/AplicacionesMov/AppDonacion/app/src/main/res/layout/content_main.xml" value="0.11203703703703703" />
+        <entry key="..\:/Users/User/Documents/AplicacionesMov/AppDonacion/app/src/main/res/layout/fragment_lista_donaciones.xml" value="0.1" />
+        <entry key="..\:/Users/User/Documents/AplicacionesMov/AppDonacion/app/src/main/res/layout/fragment_maps.xml" value="0.11203703703703703" />
+        <entry key="..\:/Users/User/Documents/AplicacionesMov/AppDonacion/app/src/main/res/layout/fragment_slideshow.xml" value="0.11203703703703703" />
+        <entry key="..\:/Users/User/Documents/AplicacionesMov/AppDonacion/app/src/main/res/layout/item_list_donaciones.xml" value="0.11203703703703703" />
+        <entry key="..\:/Users/User/Documents/AplicacionesMov/AppDonacion/app/src/main/res/layout/nav_header_main.xml" value="0.25" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
