@@ -38,7 +38,7 @@ public class AdaptadorDonaciones extends RecyclerView.Adapter<AdaptadorDonacione
     @Override
     public void onBindViewHolder(@NonNull AdaptadorDonaciones.ViewHolderDonaciones holder, int position) {
         holder.etiquetaNombre.setText(listaDonaciones.get(position).getNombre());
-        holder.etiquetaInformacion.setText(listaDonaciones.get(position).getInfo());
+        holder.etiquetaCorreo.setText(listaDonaciones.get(position).getCorreo());
         holder.etiquetaNombreUsuario.setText(listaDonaciones.get(position).getNombreUsuario());
         holder.etiquetaUbiUsuario.setText(listaDonaciones.get(position).getNombreUbi());
 //        holder.foto.setImageResource(listaDonaciones.get(position).getImagenId());
@@ -73,13 +73,13 @@ public class AdaptadorDonaciones extends RecyclerView.Adapter<AdaptadorDonacione
 
     public class ViewHolderDonaciones extends RecyclerView.ViewHolder {
 
-        TextView etiquetaNombre, etiquetaInformacion, etiquetaNombreUsuario, etiquetaUbiUsuario ;
+        TextView etiquetaNombre, etiquetaCorreo, etiquetaNombreUsuario, etiquetaUbiUsuario ;
         ImageView foto;
 
         public ViewHolderDonaciones(@NonNull View itemView) {
             super(itemView);
             etiquetaNombre = (TextView) itemView.findViewById(R.id.idNombre);
-            etiquetaInformacion = (TextView) itemView.findViewById(R.id.idInfo);
+            etiquetaCorreo = (TextView) itemView.findViewById(R.id.correoUsuario);
             etiquetaNombreUsuario = (TextView) itemView.findViewById(R.id.nombreUsuario);
             etiquetaUbiUsuario = (TextView) itemView.findViewById(R.id.nombreUbi);
             foto = (ImageView) itemView.findViewById(R.id.idImagen);
