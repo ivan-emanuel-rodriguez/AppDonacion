@@ -149,9 +149,10 @@ public class AddProductoActivity extends AppCompatActivity {
         String desc = descripcion.getText().toString();
         String detalles = detailDon.getText().toString();
         String cant = cantidad.getText().toString();
+        String reg_token = DonacionSharePreferences.getRegistationId(getApplicationContext());
 
         DonacionRepo.guardarDonacion(nombre_User, correo_User, ubi_User,
-                name, desc, detalles, cant, url);
+                name, desc, detalles, cant, url,reg_token);
 
 
         Toast.makeText(getApplicationContext(), "Producto Agregado",

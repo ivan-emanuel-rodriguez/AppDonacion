@@ -10,7 +10,7 @@ public class DonacionesViewObject implements Serializable {
     private String descripcionDetallada;
     private int imagenDetallada;
     private String urlImagen;
-
+    private String registrationToken;
 
     public DonacionesViewObject() {
 
@@ -70,5 +70,13 @@ public class DonacionesViewObject implements Serializable {
 
     public void setUrlImagen(String urlImagen) {
         this.urlImagen = urlImagen;
+    }
+
+    public String getRegistrationToken() {
+        return registrationToken;
+    }
+
+    public void setRegistrationToken(String registrationToken) {
+        this.registrationToken = registrationToken;
     }
 }

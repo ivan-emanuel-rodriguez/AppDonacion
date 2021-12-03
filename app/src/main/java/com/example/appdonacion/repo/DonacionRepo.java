@@ -3,6 +3,7 @@ package com.example.appdonacion.repo;
 
 import android.content.Context;
 
+import com.example.appdonacion.DonacionSharePreferences;
 import com.example.appdonacion.R;
 import com.example.appdonacion.entidades.DonacionesViewObject;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -27,12 +28,14 @@ public abstract class DonacionRepo {
                     String descripcion = document.getString("descripcion");
                     String imagen = document.getString("imagen");
                     String cantidad = document.getString("cantidad");
+                    String reg_token = document.getString("registrationToken");
 
                     DonacionesViewObject donacion = new DonacionesViewObject();
 
                     donacion.setNombre(nombre);
                     donacion.setDescripcionDetallada(descripcion);
                     donacion.setUrlImagen(imagen);
+                    donacion.setRegistrationToken(reg_token);
 //                    donacion.setCantidad(cantidad);
 
                     listaDonaciones.add(donacion);
@@ -62,7 +65,8 @@ public abstract class DonacionRepo {
 
     public static void guardarDonacion(String nombre_User, String correo_User,
                                        String ubi_User, String name, String desc,
-                                       String detalles,String cant, String url) {
+                                       String detalles,String cant, String url,
+                                       String reg_token) {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -75,6 +79,7 @@ public abstract class DonacionRepo {
         map.put("detalles",detalles);
         map.put("cantidad",cant);
         map.put("imagen",url);
+        map.put("registrationToken", reg_token);
 
         db.collection("producto").document().set(
                 map
