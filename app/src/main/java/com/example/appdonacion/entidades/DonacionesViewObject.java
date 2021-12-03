@@ -10,6 +10,9 @@ public class DonacionesViewObject implements Serializable {
     private String descripcionDetallada;
     private int imagenDetallada;
     private String urlImagen;
+    private String direccion;
+    private Double longitud;
+    private Double latitud;
 
 
     public DonacionesViewObject() {
@@ -70,5 +73,29 @@ public class DonacionesViewObject implements Serializable {
 
     public void setUrlImagen(String urlImagen) {
         this.urlImagen = urlImagen;
+    }
+
+    public Double getLongitud() {
+        return longitud;
+    }
+
+    public void setLongitud(Double longitud) {
+        this.longitud = longitud;
+    }
+
+    public Double getLatitud() {
+        return latitud;
+    }
+
+    public void setLatitud(Double latitud) {
+        this.latitud = latitud;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 }

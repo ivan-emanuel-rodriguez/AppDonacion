@@ -32,7 +32,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".ui.detalleDonacion.DonacionDetalleActivity"></activity>
+        <activity android:name=".ui.detalleDonacion.DonacionDetalleActivity" />
         <activity
             android:name=".ListaDonacionActivity"
             android:label="@string/title_activity_main2"

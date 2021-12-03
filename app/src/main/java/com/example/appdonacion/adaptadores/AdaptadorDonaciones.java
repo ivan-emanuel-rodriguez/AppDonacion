@@ -40,13 +40,14 @@ public class AdaptadorDonaciones extends RecyclerView.Adapter<AdaptadorDonacione
         holder.etiquetaNombre.setText(listaDonaciones.get(position).getNombre());
         holder.etiquetaInformacion.setText(listaDonaciones.get(position).getInfo());
 //        holder.foto.setImageResource(listaDonaciones.get(position).getImagenId());
-        
-        Glide.with(context)
-                .load(String.valueOf(listaDonaciones.get(position).getUrlImagen()))
-                .fitCenter()
-                .centerCrop()
-                .into(holder.foto);
 
+        if (!listaDonaciones.get(position).getUrlImagen().equals("")) {
+            Glide.with(context)
+                    .load(String.valueOf(listaDonaciones.get(position).getUrlImagen()))
+                    .fitCenter()
+                    .centerCrop()
+                    .into(holder.foto);
+        }
     }
 
     @Override

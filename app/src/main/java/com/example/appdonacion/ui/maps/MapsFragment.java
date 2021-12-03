@@ -1,23 +1,27 @@
 package com.example.appdonacion.ui.maps;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import com.example.appdonacion.R;
+import com.example.appdonacion.entidades.DonacionesViewObject;
+import com.example.appdonacion.repo.DonacionRepo;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsFragment extends Fragment {
+    private GoogleMap maps;
 
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
 
@@ -32,9 +36,29 @@ public class MapsFragment extends Fragment {
          */
         @Override
         public void onMapReady(GoogleMap googleMap) {
-            LatLng sydney = new LatLng(-34, 151);
-            googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-            googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+            maps = googleMap;
+
+            LatLng facuUbicacion = new LatLng(-34.77476, -58.26977);
+            maps.moveCamera(CameraUpdateFactory.newLatLngZoom(facuUbicacion, 12));
+
+            maps.setOnMarkerClickListener(marker -> true);
+            maps.setOnMapClickListener(latLng -> {
+            });
+
+
+            DonacionRepo.getDonaciones(getActivity(), lista -> {
+                for (DonacionesViewObject donacionesViewObject : lista) {
+                    if (donacionesViewObject.getLatitud() != null && donacionesViewObject.getLongitud() != null) {
+
+                        LatLng ubicacion = new LatLng(donacionesViewObject.getLatitud(), donacionesViewObject.getLongitud());
+                        Marker marker = maps.addMarker(new MarkerOptions().position(ubicacion)
+                                .title(donacionesViewObject.getDireccion()));
+                        marker.showInfoWindow();
+
+                    }
+                }
+            });
+
         }
     };
 
@@ -55,4 +79,5 @@ public class MapsFragment extends Fragment {
             mapFragment.getMapAsync(callback);
         }
     }
+
 }

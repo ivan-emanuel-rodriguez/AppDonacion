@@ -27,18 +27,24 @@ public abstract class DonacionRepo {
                     String descripcion = document.getString("descripcion");
                     String imagen = document.getString("imagen");
                     String cantidad = document.getString("cantidad");
+                    String direccion = document.getString("direccion");
+                    Double latitud = document.getDouble("latitud");
+                    Double longitud = document.getDouble("longitud");
 
                     DonacionesViewObject donacion = new DonacionesViewObject();
 
                     donacion.setNombre(nombre);
                     donacion.setDescripcionDetallada(descripcion);
                     donacion.setUrlImagen(imagen);
+                    donacion.setLatitud(latitud);
+                    donacion.setLongitud(longitud);
+
 //                    donacion.setCantidad(cantidad);
 
                     listaDonaciones.add(donacion);
                 }
             }
-                callback.showLista(listaDonaciones);
+            callback.showLista(listaDonaciones);
 //            } else {
 //               getDonacionesDemo(context, callback);
 //            }
@@ -62,19 +68,21 @@ public abstract class DonacionRepo {
 
     public static void guardarDonacion(String nombre_User, String correo_User,
                                        String ubi_User, String name, String desc,
-                                       String detalles,String cant, String url) {
+                                       String detalles, String cant, String url, Double latitud, Double longitud) {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        Map<String,Object> map = new HashMap<>();
-        map.put("nombreUsuario",nombre_User);
-        map.put("correo",correo_User);
-        map.put("direccion",ubi_User);
-        map.put("nombre",name);
-        map.put("descripcion",desc);
-        map.put("detalles",detalles);
-        map.put("cantidad",cant);
-        map.put("imagen",url);
+        Map<String, Object> map = new HashMap<>();
+        map.put("nombreUsuario", nombre_User);
+        map.put("correo", correo_User);
+        map.put("direccion", ubi_User);
+        map.put("nombre", name);
+        map.put("descripcion", desc);
+        map.put("detalles", detalles);
+        map.put("cantidad", cant);
+        map.put("imagen", url);
+        map.put("latitud", latitud);
+        map.put("longitud", longitud);
 
         db.collection("producto").document().set(
                 map
