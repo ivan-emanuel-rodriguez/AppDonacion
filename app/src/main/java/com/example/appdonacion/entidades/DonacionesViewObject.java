@@ -13,9 +13,17 @@ public class DonacionesViewObject implements Serializable {
     private String direccion;
     private String nombreUsuario;
     private String nombreUbi;
+    private String correo;
     private Double longitud;
     private Double latitud;
 
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
 
     public DonacionesViewObject() {
 
