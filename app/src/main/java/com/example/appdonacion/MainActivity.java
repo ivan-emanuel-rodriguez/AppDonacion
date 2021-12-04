@@ -14,6 +14,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -63,10 +67,24 @@ public class MainActivity extends AppCompatActivity {
                                 // Sign in success, update UI with the signed-in user's information
                                 //Log.d(TAG, "signInWithEmail:success");
                                 FirebaseUser user = mAuth.getCurrentUser();
-
+                                String cadena = user.getUid();
+                                //String cadena2 = user.getIdToken(true).getResult().getToken();
                                 DonacionSharePreferences.setCorreo(getApplicationContext(), correo.getText().toString());
                                 DonacionSharePreferences.setNombreUsuario(getApplicationContext(), user.getDisplayName());
                                 DonacionSharePreferences.setRecordarUser(getApplicationContext(), true);
+                                DonacionSharePreferences.setTokenId(getApplicationContext(), user.getUid());
+
+
+                                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                                String token = DonacionSharePreferences.getTokenId(getApplicationContext());
+                                Map<String,Object> map = new HashMap<>();
+                                map.put("registrationToken",DonacionSharePreferences.getRegistationId(getApplicationContext()));
+                                String a = DonacionSharePreferences.getRegistationId(getApplicationContext());
+                                String b = DonacionSharePreferences.getCorreo(getApplicationContext());
+                                db.collection("usuarios").document(user.getUid()).set(
+                                        map
+                                );
+
 
                                 //Inicio sesion correctamente
                                 Toast.makeText(getApplicationContext(), "Ha iniciado sesion correctamente", Toast.LENGTH_SHORT).show();

@@ -33,14 +33,27 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:text="Descripcion" />
-
-        <!--        <fragment-->
-        <!--            android:id="@+id/map"-->
-        <!--            android:name="com.google.android.gms.maps.SupportMapFragment"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="300dp"-->
-        <!--            android:layout_marginTop="20dp"-->
-        <!--            tools:context=".ui.maps.MapsFragment" />-->
+        <Button
+            android:id="@+id/btn_notifier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#B3B1B1"
+            android:text="Pedir"
+            android:textColor="#000000" />
+        <Button
+            android:id="@+id/btn_whatsapp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#B3B1B1"
+            android:text="Hablar por whatsapp"
+            android:textColor="#000000" />
+<!--        <fragment-->
+<!--            android:id="@+id/map"-->
+<!--            android:name="com.google.android.gms.maps.SupportMapFragment"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="300dp"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            tools:context=".ui.maps.MapsFragment" />-->
 
     </LinearLayout>
 

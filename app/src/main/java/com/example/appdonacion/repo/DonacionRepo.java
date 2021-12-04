@@ -3,6 +3,7 @@ package com.example.appdonacion.repo;
 
 import android.content.Context;
 
+import com.example.appdonacion.DonacionSharePreferences;
 import com.example.appdonacion.R;
 import com.example.appdonacion.entidades.DonacionesViewObject;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -29,6 +30,7 @@ public abstract class DonacionRepo {
                     String usuario = document.getString("nombreUsuario");
                     String correo = document.getString("correo");
                     String cantidad = document.getString("cantidad");
+                    String reg_token = document.getString("registrationToken");
                     String direccion = document.getString("direccion");
                     Double latitud = document.getDouble("latitud");
                     Double longitud = document.getDouble("longitud");
@@ -41,6 +43,7 @@ public abstract class DonacionRepo {
                     donacion.setNombreUbi(direccion);
                     donacion.setCorreo(correo);
                     donacion.setUrlImagen(imagen);
+                    donacion.setRegistrationToken(reg_token);
                     donacion.setLatitud(latitud);
                     donacion.setLongitud(longitud);
 
@@ -73,7 +76,8 @@ public abstract class DonacionRepo {
 
     public static void guardarDonacion(String nombre_User, String correo_User,
                                        String ubi_User, String name, String desc,
-                                       String detalles, String cant, String url, Double latitud, Double longitud) {
+                                       String detalles,String cant, String url,
+                                       String reg_token) {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -86,6 +90,7 @@ public abstract class DonacionRepo {
         map.put("detalles", detalles);
         map.put("cantidad", cant);
         map.put("imagen", url);
+        map.put("registrationToken", reg_token);
         map.put("latitud", latitud);
         map.put("longitud", longitud);
 

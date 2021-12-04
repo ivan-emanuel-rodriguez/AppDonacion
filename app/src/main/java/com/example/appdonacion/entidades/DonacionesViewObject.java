@@ -10,6 +10,7 @@ public class DonacionesViewObject implements Serializable {
     private String descripcionDetallada;
     private int imagenDetallada;
     private String urlImagen;
+    private String registrationToken;
     private String direccion;
     private String nombreUsuario;
     private String nombreUbi;
@@ -101,6 +102,13 @@ public class DonacionesViewObject implements Serializable {
         this.urlImagen = urlImagen;
     }
 
+    public String getRegistrationToken() {
+        return registrationToken;
+    }
+
+    public void setRegistrationToken(String registrationToken) {
+        this.registrationToken = registrationToken;
+      
     public Double getLongitud() {
         return longitud;
     }
