@@ -66,5 +66,7 @@
     <string name="detailProducto">Details (Product Status)</string>
     <string name="cantProduct">Quantity</string>
     <string name="idioma">Change language</string>
-
+    <string name="ingles">English</string>
+    <string name="Español">Spanish</string>
+    <string name="Frances">French</string>
 </resources>

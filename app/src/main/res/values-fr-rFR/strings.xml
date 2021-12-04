@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AppDonacion</string>
+
+    <!---Login-->
+    <string name="btn_iniciar_sesion">Commencer la session</string>
+    <string name="btn_registrarse">Registrarse</string>
+
+    <string name="btn_inicioSesion">Commencer la session</string>
+    <string name="btn_registro">Registrarse</string>
+    <string name="btn_volver">Retourner pour commencer</string>
+    <string name="btn_cerrarSesion">Fermer la session</string>
+
+    <string name="correo">Courrier</string>
+    <string name="nombre">Nom d utilisateur</string>
+    <string name="localidad">localité</string>
+    <string name="contrasena">Mot de passe</string>
+    <string name="recontrasena">Confirmation mot de passe</string>
+
+
+    <!---Maestro/Detalle-->
+    <string name="donaciones">Liste des produits donnés :</string>
+
+    <!---Nombres-->
+    <string name="aceite">Huile</string>
+    <string name="arroz">Riz</string>
+    <string name="fideo">Nouilles</string>
+    <string name="lenteja">Lentilles</string>
+    <string name="polenta">Polenta</string>
+
+    <!---Informacion-->
+    <string name="aceiteInfo">Botella aceite girasol</string>
+    <string name="arrozInfo">Paquete de arroz</string>
+    <string name="fideoInfo">Paquete de fideo</string>
+    <string name="lentejaInfo">Paquete de lenteja</string>
+    <string name="polentaInfo">Paquete de polenta</string>
+
+    <!---Descripcion-->
+    <string name="aceiteDesc">Tengo dos botellas de aceite girasol para donar</string>
+    <string name="arrozDesc">Tengo cuatro paquetes de arroz marca Aliada para donar</string>
+    <string name="fideoDesc">Tengo ocho paquetess de fideos marca Molitalia para donar</string>
+    <string name="lentejaDesc">Tengo tres paquetes de lentejas para donar</string>
+    <string name="polentaDesc">Tengo diez paquetes de polenta marca Presto Pronta para donar</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">domicile</string>
+    <string name="menu_gallery">Galerie</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_donaciones">Des dons</string>
+
+    <string name="menu_mapa">Carte</string>
+    <string name="menu_info">Réglage</string>
+    <string name="menu_nosotros">Près de nous</string>
+    <string name="logout">Fermer la session</string>
+
+    <string name="nameUser">Nom d utilisateur</string>
+    <string name="ubiUser">Adresse</string>
+    <string name="nameProduct">Qu allez-vous donner ?</string>
+    <string name="descProduct">Description de votre don</string>
+    <string name="detailProducto">Détails (état du produit)</string>
+    <string name="cantProduct">Quantité</string>
+
+    <string name="idioma">Changer la langue</string>
+    <string name="ingles">Anglais</string>
+    <string name="Español">Espagnol</string>
+    <string name="Frances">Français</string>
+</resources>

@@ -46,6 +46,13 @@
         android:backgroundTint="#B3B1B1"
         android:text="Español"
         android:textColor="#000000" />
+        <Button
+            android:id="@+id/btn_fr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#B3B1B1"
+            android:text="Frances"
+            android:textColor="#000000" />
 </LinearLayout>
 
 

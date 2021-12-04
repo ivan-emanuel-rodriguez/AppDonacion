@@ -26,6 +26,7 @@ public class SlideshowFragment extends Fragment {
 
     private Button ingles;
     private Button espaniol;
+    private Button frances;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -36,8 +37,10 @@ public class SlideshowFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
         ingles = (Button) root.findViewById(R.id.btn_ingles);
         espaniol = (Button) root.findViewById(R.id.btn_esp);
+        frances = (Button) root.findViewById(R.id.btn_fr);
         ingles.setOnClickListener(CambiarAEs);
         espaniol.setOnClickListener(ChangeToEn);
+        frances.setOnClickListener(ChangeToFr);
 
 
         final TextView textView = root.findViewById(R.id.text_slideshow);
@@ -59,6 +62,12 @@ public class SlideshowFragment extends Fragment {
         @Override
         public void onClick(View v) {
             CambiarIdioma("es");
+        }
+    };
+    private View.OnClickListener ChangeToFr = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            CambiarIdioma("fr");
         }
     };
     public void CambiarIdioma(String idioma){
