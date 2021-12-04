@@ -66,5 +66,8 @@
     <string name="cantProduct">Cantidad</string>
 
     <string name="idioma">Cambiar idioma</string>
+    <string name="ingles">Ingles</string>
+    <string name="Español">Español</string>
+    <string name="Frances">Frances</string>
 
 </resources>
