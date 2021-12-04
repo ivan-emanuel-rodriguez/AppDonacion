@@ -73,8 +73,8 @@ public class ListaDonacionesFragment extends Fragment {
         //metodo para cargar la lista de donaciones
         llenarDonaciones();
 
-        TextView tituloTextView = vista.findViewById(R.id.textUsuarioId);
-        tituloTextView.setText(DonacionSharePreferences.getUsuario(getContext()));
+        //TextView tituloTextView = vista.findViewById(R.id.textUsuarioId);
+        //tituloTextView.setText(DonacionSharePreferences.getUsuario(getContext()));
 
         return vista;
     }

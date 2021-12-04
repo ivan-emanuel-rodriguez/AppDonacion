@@ -20,15 +20,18 @@
             android:id="@+id/subir_imagen"
             android:layout_width="match_parent"
             android:layout_height="142dp"
-            android:layout_marginBottom="20dp" />
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/no_image" />
+
         <EditText
-        android:id="@+id/nombreUser"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="@string/nameUser"
-        android:inputType="textPersonName" />
+            android:id="@+id/nombreUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="@string/nameUser"
+            android:inputType="textPersonName" />
+
         <EditText
             android:id="@+id/correoUser"
             android:layout_width="match_parent"
@@ -37,6 +40,7 @@
             android:gravity="center"
             android:hint="@string/correo"
             android:inputType="textPersonName" />
+
         <EditText
             android:id="@+id/ubiUser"
             android:layout_width="match_parent"
@@ -56,13 +60,13 @@
             android:inputType="textPersonName" />
 
         <EditText
-        android:id="@+id/descripciontv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="@string/descProduct"
-        android:inputType="text" />
+            android:id="@+id/descripciontv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="@string/descProduct"
+            android:inputType="text" />
 
         <EditText
             android:id="@+id/detailDon"
@@ -72,6 +76,7 @@
             android:gravity="center"
             android:hint="@string/detailProducto"
             android:inputType="text" />
+
         <EditText
             android:id="@+id/cantidadtv"
             android:layout_width="match_parent"

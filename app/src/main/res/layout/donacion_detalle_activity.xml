@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_marginBottom="10dp"
-            android:src="@drawable/arroz" />
+            android:src="@drawable/no_image" />
 
         <TextView
             android:id="@+id/descripcionId"

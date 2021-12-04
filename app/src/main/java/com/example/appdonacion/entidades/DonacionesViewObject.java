@@ -11,6 +11,20 @@ public class DonacionesViewObject implements Serializable {
     private int imagenDetallada;
     private String urlImagen;
     private String registrationToken;
+    private String direccion;
+    private String nombreUsuario;
+    private String nombreUbi;
+    private String correo;
+    private Double longitud;
+    private Double latitud;
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
 
     public DonacionesViewObject() {
 
@@ -30,6 +44,22 @@ public class DonacionesViewObject implements Serializable {
 
     public void setDescripcionDetallada(String descripcionDetallada) {
         this.descripcionDetallada = descripcionDetallada;
+    }
+
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+    }
+
+    public String getNombreUbi() {
+        return nombreUbi;
+    }
+
+    public void setNombreUbi(String nombreUbi) {
+        this.nombreUbi = nombreUbi;
     }
 
     public int getImagenDetallada() {
@@ -78,5 +108,28 @@ public class DonacionesViewObject implements Serializable {
 
     public void setRegistrationToken(String registrationToken) {
         this.registrationToken = registrationToken;
+      
+    public Double getLongitud() {
+        return longitud;
+    }
+
+    public void setLongitud(Double longitud) {
+        this.longitud = longitud;
+    }
+
+    public Double getLatitud() {
+        return latitud;
+    }
+
+    public void setLatitud(Double latitud) {
+        this.latitud = latitud;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 }

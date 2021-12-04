@@ -38,15 +38,18 @@ public class AdaptadorDonaciones extends RecyclerView.Adapter<AdaptadorDonacione
     @Override
     public void onBindViewHolder(@NonNull AdaptadorDonaciones.ViewHolderDonaciones holder, int position) {
         holder.etiquetaNombre.setText(listaDonaciones.get(position).getNombre());
-        holder.etiquetaInformacion.setText(listaDonaciones.get(position).getInfo());
+        holder.etiquetaCorreo.setText(listaDonaciones.get(position).getCorreo());
+        holder.etiquetaNombreUsuario.setText(listaDonaciones.get(position).getNombreUsuario());
+        holder.etiquetaUbiUsuario.setText(listaDonaciones.get(position).getNombreUbi());
 //        holder.foto.setImageResource(listaDonaciones.get(position).getImagenId());
-        
-        Glide.with(context)
-                .load(String.valueOf(listaDonaciones.get(position).getUrlImagen()))
-                .fitCenter()
-                .centerCrop()
-                .into(holder.foto);
 
+        if (!listaDonaciones.get(position).getUrlImagen().equals("")) {
+            Glide.with(context)
+                    .load(String.valueOf(listaDonaciones.get(position).getUrlImagen()))
+                    .fitCenter()
+                    .centerCrop()
+                    .into(holder.foto);
+        }
     }
 
     @Override
@@ -70,13 +73,15 @@ public class AdaptadorDonaciones extends RecyclerView.Adapter<AdaptadorDonacione
 
     public class ViewHolderDonaciones extends RecyclerView.ViewHolder {
 
-        TextView etiquetaNombre, etiquetaInformacion;
+        TextView etiquetaNombre, etiquetaCorreo, etiquetaNombreUsuario, etiquetaUbiUsuario ;
         ImageView foto;
 
         public ViewHolderDonaciones(@NonNull View itemView) {
             super(itemView);
             etiquetaNombre = (TextView) itemView.findViewById(R.id.idNombre);
-            etiquetaInformacion = (TextView) itemView.findViewById(R.id.idInfo);
+            etiquetaCorreo = (TextView) itemView.findViewById(R.id.correoUsuario);
+            etiquetaNombreUsuario = (TextView) itemView.findViewById(R.id.nombreUsuario);
+            etiquetaUbiUsuario = (TextView) itemView.findViewById(R.id.nombreUbi);
             foto = (ImageView) itemView.findViewById(R.id.idImagen);
         }
     }

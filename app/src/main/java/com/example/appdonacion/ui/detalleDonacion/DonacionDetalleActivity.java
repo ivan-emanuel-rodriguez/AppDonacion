@@ -71,13 +71,17 @@ public class DonacionDetalleActivity extends AppCompatActivity {
 
         textDescripcion.setText(donacion.getDescripcionDetallada());
 
-        Glide.with(getApplicationContext())
-                .load(String.valueOf(donacion.getUrlImagen()))
-                .fitCenter()
-                .centerCrop()
-                .into(imagenDetalle);
 
+//        donacion.getLongitud();
+//        donacion.getLatitud();
+        if (!donacion.getUrlImagen().equals("")) {
 
+            Glide.with(getApplicationContext())
+                    .load(String.valueOf(donacion.getUrlImagen()))
+                    .fitCenter()
+                    .centerCrop()
+                    .into(imagenDetalle);
+        }
     }
 
 
