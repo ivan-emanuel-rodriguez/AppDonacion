@@ -86,29 +86,6 @@ public class DonacionesViewObject implements Serializable {
         this.info = info;
     }
 
-    public int getImagenId() {
-        return imagenId;
-    }
-
-    public void setImagenId(int imagenId) {
-        this.imagenId = imagenId;
-    }
-
-    public String getUrlImagen() {
-        return urlImagen;
-    }
-
-    public void setUrlImagen(String urlImagen) {
-        this.urlImagen = urlImagen;
-    }
-
-    public String getRegistrationToken() {
-        return registrationToken;
-    }
-
-    public void setRegistrationToken(String registrationToken) {
-        this.registrationToken = registrationToken;
-      
     public Double getLongitud() {
         return longitud;
     }
@@ -131,5 +108,30 @@ public class DonacionesViewObject implements Serializable {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+
+
+    public int getImagenId() {
+        return imagenId;
+    }
+
+    public void setImagenId(int imagenId) {
+        this.imagenId = imagenId;
+    }
+
+    public String getUrlImagen() {
+        return urlImagen;
+    }
+
+    public void setUrlImagen(String urlImagen) {
+        this.urlImagen = urlImagen;
+    }
+
+    public String getRegistrationToken() {
+        return registrationToken;
+    }
+
+    public void setRegistrationToken(String registrationToken) {
+        this.registrationToken = registrationToken;
     }
 }

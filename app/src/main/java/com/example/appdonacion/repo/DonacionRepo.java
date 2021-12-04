@@ -77,7 +77,7 @@ public abstract class DonacionRepo {
     public static void guardarDonacion(String nombre_User, String correo_User,
                                        String ubi_User, String name, String desc,
                                        String detalles,String cant, String url,
-                                       String reg_token) {
+                                       String reg_token, Double latitud, Double longitud) {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
