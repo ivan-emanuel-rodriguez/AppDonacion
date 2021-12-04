@@ -12,14 +12,32 @@ public class DonacionesViewObject implements Serializable {
     private String urlImagen;
     private String registrationToken;
     private String direccion;
+    private String detalles;
+    private String cantidad;
     private String nombreUsuario;
     private String nombreUbi;
     private String correo;
     private Double longitud;
     private Double latitud;
 
+    public String getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(String cantidad) {
+        this.cantidad = cantidad;
+    }
+
     public String getCorreo() {
         return correo;
+    }
+
+    public String getDetalles() {
+        return detalles;
+    }
+
+    public void setDetalles(String detalle) {
+        this.detalles = detalle;
     }
 
     public void setCorreo(String correo) {

@@ -70,4 +70,6 @@
     <string name="ingles">Anglais</string>
     <string name="Español">Espagnol</string>
     <string name="Frances">Français</string>
+
+    <string name="btn_mapa">Voir lemplacement</string>
 </resources>

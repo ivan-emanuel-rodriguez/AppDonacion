@@ -32,6 +32,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -42,11 +43,14 @@ public class DonacionDetalleActivity extends AppCompatActivity {
     private DonacionesViewObject donacion;
     private Button notifier;
     private Button whatsapp;
+    private Button mapa;
     private long numero_whatsapp = 3515193923L;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.donacion_detalle_activity);
+        mapa= (Button)findViewById(R.id.btn_mapa);
+        mapa.setOnClickListener(obtenerUbicacion);
         notifier = (Button)findViewById(R.id.btn_notifier);
         notifier.setOnClickListener(EnviarNotificacion);
         whatsapp = (Button)findViewById(R.id.btn_whatsapp);
@@ -65,11 +69,16 @@ public class DonacionDetalleActivity extends AppCompatActivity {
     }
 
     private void setupView() {
-
+        TextView textNombre = findViewById(R.id.nombreDetalleId);
         TextView textDescripcion = findViewById(R.id.descripcionId);
+        TextView textDetalles = findViewById(R.id.detalleId);
+        TextView textCantidad = findViewById(R.id.cantidadId);
         ImageView imagenDetalle = findViewById(R.id.imagenDetalleId);
 
+        textNombre.setText(donacion.getNombre());
         textDescripcion.setText(donacion.getDescripcionDetallada());
+        textDetalles.setText(donacion.getDetalles());
+        textCantidad.setText(donacion.getCantidad());
 
 
 //        donacion.getLongitud();
@@ -109,6 +118,19 @@ public class DonacionDetalleActivity extends AppCompatActivity {
             LatLng sydney = new LatLng(-34, 151);
             googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
             googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        }
+    };
+
+    private View.OnClickListener obtenerUbicacion = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                    Uri.parse("geo:"+donacion.getLatitud().toString()+","+donacion.getLongitud().toString()
+                            +"?z=16&q="+donacion.getLatitud().toString()+","+donacion.getLongitud().toString()+"(MiUbicacion)"));
+            //Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+            //        Uri.parse("geo:41.3825581,2.1704375?z=16&q=41.3825581,2.1704375(Barcelona)"));
+            intent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
+            startActivity(intent);
         }
     };
 

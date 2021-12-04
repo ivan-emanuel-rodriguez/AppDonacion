@@ -29,6 +29,7 @@ public abstract class DonacionRepo {
                     String imagen = document.getString("imagen");
                     String usuario = document.getString("nombreUsuario");
                     String correo = document.getString("correo");
+                    String detalles = document.getString("detalles");
                     String cantidad = document.getString("cantidad");
                     String reg_token = document.getString("registrationToken");
                     String direccion = document.getString("direccion");
@@ -46,8 +47,8 @@ public abstract class DonacionRepo {
                     donacion.setRegistrationToken(reg_token);
                     donacion.setLatitud(latitud);
                     donacion.setLongitud(longitud);
-
-//                    donacion.setCantidad(cantidad);
+                    donacion.setCantidad(cantidad);
+                    donacion.setDetalles(detalles);
 
                     listaDonaciones.add(donacion);
                 }

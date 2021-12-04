@@ -18,21 +18,50 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:context="com.example.appdonacion.fragments.DetalleDonacionesFragment">
-
+        <TextView
+            android:id="@+id/nombreDetalleId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            android:text="NombreProducto" />
         <ImageView
             android:id="@+id/imagenDetalleId"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_marginBottom="10dp"
             android:src="@drawable/no_image" />
-
         <TextView
             android:id="@+id/descripcionId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="25dp"
             android:layout_marginEnd="20dp"
+            android:layout_marginBottom="5dp"
             android:text="Descripcion" />
+        <TextView
+            android:id="@+id/detalleId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="5dp"
+            android:text="Detalles" />
+        <TextView
+            android:id="@+id/cantidadId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="20dp"
+            android:text="Cantidad" />
+        <Button
+            android:id="@+id/btn_mapa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#B3B1B1"
+            android:text="@string/btn_mapa"
+            android:textColor="#000000" />
         <Button
             android:id="@+id/btn_notifier"
             android:layout_width="match_parent"

@@ -69,4 +69,6 @@
     <string name="ingles">English</string>
     <string name="Español">Spanish</string>
     <string name="Frances">French</string>
+
+    <string name="btn_mapa">See location</string>
 </resources>

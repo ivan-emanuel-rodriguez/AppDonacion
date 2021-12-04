@@ -70,16 +70,16 @@ public class DetalleDonacionesFragment extends Fragment {
         // Inflate the layout for this fragment
         View vista=inflater.inflate(R.layout.fragment_detalle_donaciones, container, false);
 
-        textDescripcion=vista.findViewById(R.id.descripcionId);
-        imagenDetalle=vista.findViewById(R.id.imagenDetalleId);
+        //textDescripcion=vista.findViewById(R.id.descripcionId);
+        //imagenDetalle=vista.findViewById(R.id.imagenDetalleId);
 
         Bundle objetoDonacion=getArguments();
         DonacionesViewObject donacion=null;
         //Verifico que DonacionesViewObject haya un objeto donacion a mostrar
         if (objetoDonacion != null) {
             donacion= (DonacionesViewObject) objetoDonacion.getSerializable("objeto");
-            imagenDetalle.setImageResource(donacion.getImagenDetallada());
-            textDescripcion.setText(donacion.getDescripcionDetallada());
+          //  imagenDetalle.setImageResource(donacion.getImagenDetallada());
+          //  textDescripcion.setText(donacion.getDescripcionDetallada());
         }
 
         return vista;

@@ -70,4 +70,6 @@
     <string name="Español">Español</string>
     <string name="Frances">Frances</string>
 
+    <string name="btn_mapa">Ver ubicación</string>
+
 </resources>
