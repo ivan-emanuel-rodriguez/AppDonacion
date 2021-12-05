@@ -19,6 +19,8 @@ public class DonacionesViewObject implements Serializable {
     private String correo;
     private Double longitud;
     private Double latitud;
+    private String tokenID;
+    private String telefono;
 
     public String getCantidad() {
         return cantidad;
@@ -151,5 +153,20 @@ public class DonacionesViewObject implements Serializable {
 
     public void setRegistrationToken(String registrationToken) {
         this.registrationToken = registrationToken;
+    }
+    public String getTokenID() {
+        return tokenID;
+    }
+
+    public void setTokenID(String tokenID) {
+        this.tokenID = tokenID;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 }

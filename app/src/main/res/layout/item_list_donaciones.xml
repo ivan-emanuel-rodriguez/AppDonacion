@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:gravity="center_horizontal"
-                android:text="Nombre"
+                android:text="@string/name"
                 android:textSize="22sp"
                 android:textStyle="bold" />
             <TextView
@@ -37,20 +37,20 @@
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:text="NombreUsuario" />
+                android:text="@string/nombre" />
 
             <TextView
                 android:id="@+id/correoUsuario"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:text="correoUsuario" />
+                android:text="@string/correo" />
             <TextView
                 android:id="@+id/nombreUbi"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:text="Ubicacion" />
+                android:text="@string/ubiUser" />
 
         </LinearLayout>
     </LinearLayout>

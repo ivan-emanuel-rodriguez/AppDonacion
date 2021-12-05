@@ -46,6 +46,14 @@
             android:gravity="center"
             android:hint="@string/localidad"
             android:inputType="textPersonName" />
+        <EditText
+            android:id="@+id/telefono_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="@string/telefono"
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/contrasena"

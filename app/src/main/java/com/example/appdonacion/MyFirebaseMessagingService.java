@@ -39,7 +39,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         super.onMessageReceived(remoteMessage);
         String from = remoteMessage.getFrom();
         int j = remoteMessage.getData().size();
-        if(remoteMessage.getData().size()>0){
+        /*if(remoteMessage.getData().size()>0){
             nombre = remoteMessage.getData().get("nombre");
             detalle = remoteMessage.getData().get("detalle");
             imagen = remoteMessage.getData().get("imagen");
@@ -48,7 +48,12 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             telefono = remoteMessage.getData().get("telefono");
             //telefono = remoteMessage.getData().get("telefono");
             mayorqueoreo(nombre,detalle,imagen);
-        }
+        }*/
+        String a = remoteMessage.getData().toString();
+        imagen = remoteMessage.getData().get("imagen");
+        telefono = remoteMessage.getData().get("telefono");
+
+        mayorqueoreo(nombre,detalle,imagen);
     }
 
     private void mayorqueoreo(String nombre, String detalle,String imagen){
@@ -100,8 +105,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         */
     }
     public PendingIntent clicknotify(){
-        Intent nf = new Intent(getApplicationContext(),PaginaPrincipalActivity.class);
-        //Intent nf = new Intent(getApplicationContext(),Pedido.class);
+        //Intent nf = new Intent(getApplicationContext(),PaginaPrincipalActivity.class);
+        Intent nf = new Intent(getApplicationContext(),Pedido.class);
 
         Bundle bolsa = new Bundle();
         bolsa.putString("detalle","Hola");

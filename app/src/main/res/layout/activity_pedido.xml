@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="center"
-            android:hint="El usuario de datos"
+            android:text="@string/usuario_de_datos"
             android:inputType="text" />
         <TextView
             android:id="@+id/correotv"
@@ -39,17 +39,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="center"
-            android:text="Correo: "
-            android:inputType="text"/>
-        <TextView
-            android:id="@+id/telefonotv"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="center"
-            android:text="Teléfono: "
+            android:text="@string/su_correo"
             android:inputType="text"/>
         <TextView
             android:id="@+id/información2tv"
@@ -59,7 +49,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="center"
-            android:text="Solicitó tu "
+            android:text="@string/solicito_tu"
             android:inputType="text"/>
         <TextView
             android:id="@+id/nombretv"
@@ -69,7 +59,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="center"
-            android:text="Nombre objeto"
+            android:text="@string/nombre_objeto"
             android:inputType="text"/>
         <TextView
             android:id="@+id/detalletv"
@@ -79,13 +69,13 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="center"
-            android:text="Detalle Objeto"
+            android:text="@string/detalle_objeto"
             android:inputType="text"/>
         <Button
             android:id="@+id/btn_send"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Charlar whatsapp" />
+            android:text="@string/hablar_x_ws" />
 
 
     </LinearLayout>

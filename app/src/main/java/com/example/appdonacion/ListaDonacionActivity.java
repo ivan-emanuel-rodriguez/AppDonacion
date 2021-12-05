@@ -62,7 +62,7 @@ public class ListaDonacionActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
 
-                    Toast.makeText(ListaDonacionActivity.this, "No es la versión 6 de android o posteriores" + Build.VERSION.SDK_INT, Toast.LENGTH_LONG).show();
+                    Toast.makeText(ListaDonacionActivity.this, R.string.baja_version + Build.VERSION.SDK_INT, Toast.LENGTH_LONG).show();
 
                 } else {
                     int hasWriteContactsPermission = checkSelfPermission(android.Manifest.permission.CAMERA);
@@ -112,7 +112,7 @@ public class ListaDonacionActivity extends AppCompatActivity {
 
         if (mAuth.getCurrentUser() != null) {
             mAuth.signOut();
-            Toast.makeText(getApplicationContext(), "Se ha cerrado la sesión", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), R.string.sesion_cerrada, Toast.LENGTH_SHORT).show();
             Intent i = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(i);
             finish();
@@ -140,7 +140,7 @@ public class ListaDonacionActivity extends AppCompatActivity {
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(intent,100);
             } else {
-                Toast.makeText(this, "No tienes permisos para utilizar la cámara ", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.no_hay_permisos_camara, Toast.LENGTH_LONG).show();
             }
         }else{
             super.onRequestPermissionsResult(requestCode, permissions, grantResults);

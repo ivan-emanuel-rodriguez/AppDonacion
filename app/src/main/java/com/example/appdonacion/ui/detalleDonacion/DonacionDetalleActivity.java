@@ -29,6 +29,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -44,7 +45,7 @@ public class DonacionDetalleActivity extends AppCompatActivity {
     private Button notifier;
     private Button whatsapp;
     private Button mapa;
-    private long numero_whatsapp = 3515193923L;
+    //private long numero_whatsapp = 3515193923L;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -145,20 +146,35 @@ public class DonacionDetalleActivity extends AppCompatActivity {
         RequestQueue myrequest = Volley.newRequestQueue(getApplicationContext());
         JSONObject json = new JSONObject();
         try {
-            //Toast.makeText(this, donacion.getRegistrationToken(), Toast.LENGTH_LONG).show();
-
-
-            //String token = "ecyujSBbSyG0woPamGlDXF:APA91bGbsJm4U_nDA29EAkii0dhEJH1Ytjj0vXNnLWYOkfQb72qPtw1jtPaOE7u5Hp2KjvpG6ePROUiovJxI9PyZyrDEGDXPYyeUR0SCJWxM6ezeuOQxuZRBPjoqfVrdm8RR4VmqV9Ck";
-            //String token = DonacionSharePreferences.getRegistationId(getApplicationContext());
-            String compareA =donacion.getRegistrationToken();
-            String compareB = DonacionSharePreferences.getRegistationId(getApplicationContext());
             if(donacion.getRegistrationToken().equals(DonacionSharePreferences.getRegistationId(getApplicationContext()))){
-                Toast.makeText(this, "Este producto es tuyo!", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.es_tuyo, Toast.LENGTH_LONG).show();
             }
             else {
                 String token = donacion.getRegistrationToken();
                 json.put("to",token);
                 JSONObject notificacion = new JSONObject();
+
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                Map<String, Object> map = new HashMap<>();
+                map.put("nombreUsuario", DonacionSharePreferences.getUsuario(getApplicationContext()));
+                map.put("correo", DonacionSharePreferences.getCorreo(getApplicationContext()));
+                map.put("nombre", donacion.getNombre());
+                map.put("descripcion", donacion.getInfo());
+                map.put("detalles", donacion.getDescripcionDetallada());
+                map.put("imagen", donacion.getUrlImagen());
+                map.put("tokenID", donacion.getTokenID());
+                map.put("telefono", DonacionSharePreferences.getTelefono(getApplicationContext()));
+
+                db.collection("notificacion").document(donacion.getTokenID()).set(
+                        map
+                );
+                notificacion.put("imagen",donacion.getUrlImagen());
+                notificacion.put("telefono", donacion.getTelefono());
+/*
+
+
+
+
                 notificacion.put("nombre",donacion.getNombre());
                 notificacion.put("detalle", donacion.getInfo());
                 notificacion.put("imagen", donacion.getUrlImagen());
@@ -172,7 +188,7 @@ public class DonacionDetalleActivity extends AppCompatActivity {
                 String d = donacion.getDescripcionDetallada();
                 String c = DonacionSharePreferences.getCorreo(getApplicationContext());
                 String u = DonacionSharePreferences.getUsuario(getApplicationContext());
-
+ */
                 json.put("data",notificacion);
                 String URL = "https://fcm.googleapis.com/fcm/send";
                 JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST,URL,json,null,null){
@@ -185,6 +201,8 @@ public class DonacionDetalleActivity extends AppCompatActivity {
                     }
                 };
                 myrequest.add(request);
+                Toast.makeText(this, R.string.usuario_notificado, Toast.LENGTH_LONG).show();
+
             }
 
         }
@@ -200,15 +218,17 @@ public class DonacionDetalleActivity extends AppCompatActivity {
             String cadena = "Hola! me comunico con usted porque me interesó su" +
                     " producto de donación "+donacion.getNombre()+", "+donacion.getDescripcionDetallada() +" en la aplicación Donandoando!.";
             boolean installed = appInstalledOrNot("com.whatsapp");
+            String l2 = donacion.getTelefono();
+            long l =Long.parseLong(donacion.getTelefono());
             if(installed){
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("http://api.whatsapp.com/send?phone="+"+549"+numero_whatsapp+"&text="+
+                intent.setData(Uri.parse("http://api.whatsapp.com/send?phone="+"+549"+Long.parseLong(donacion.getTelefono())+"&text="+
                         cadena));
                 startActivity(intent);
             }
             else {
                 Toast.makeText(DonacionDetalleActivity.this,
-                        "No tienes whatsapp instalado en tu teléfono" , Toast.LENGTH_SHORT).show();
+                        R.string.no_tienes_ws , Toast.LENGTH_SHORT).show();
             }
         }
     };

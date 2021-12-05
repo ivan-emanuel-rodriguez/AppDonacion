@@ -20,6 +20,7 @@ import androidx.core.app.ActivityCompat;
 
 import com.bumptech.glide.Glide;
 import com.example.appdonacion.DonacionSharePreferences;
+import com.example.appdonacion.Pedido;
 import com.example.appdonacion.R;
 import com.example.appdonacion.repo.DonacionRepo;
 import com.example.appdonacion.ui.maps.LocationProvider;
@@ -46,6 +47,7 @@ public class AddProductoActivity extends AppCompatActivity {
     private EditText ubiUser;
     private EditText nombreUser;
     private EditText detailDon;
+    private boolean addToStorage;
 
 
     private static final int MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
@@ -81,6 +83,7 @@ public class AddProductoActivity extends AppCompatActivity {
         btnsubir.setOnClickListener(pushListener);
         btn_imagen.setOnClickListener(ImagenUpload);
         correoUser.setText(DonacionSharePreferences.getCorreo(getApplicationContext()));
+        getCurrentLocation();
 
     }
 
@@ -95,7 +98,9 @@ public class AddProductoActivity extends AppCompatActivity {
     private View.OnClickListener pushListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            getCurrentLocation();
+            //getCurrentLocation();
+            addStorage();
+
         }
     };
 
@@ -105,6 +110,8 @@ public class AddProductoActivity extends AppCompatActivity {
             Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             intent.setType("image/*");
             startActivityForResult(intent, GALLERY_INTENT);
+            /*Intent i = new Intent(AddProductoActivity.this, Pedido.class);
+            startActivity(i);*/
         }
     };
 
@@ -146,6 +153,8 @@ public class AddProductoActivity extends AppCompatActivity {
     }
 
     private void addStorage() {
+        addToStorage = true;
+
         LocationProvider.requestCurrentLocation(getApplicationContext(), location -> {
 
             double latitud = -34.7747628;
@@ -165,12 +174,17 @@ public class AddProductoActivity extends AppCompatActivity {
             String detalles = detailDon.getText().toString();
             String cant = cantidad.getText().toString();
             String reg_token = DonacionSharePreferences.getRegistationId(getApplicationContext());
-            DonacionRepo.guardarDonacion(nombre_User, correo_User, ubi_User,
-                    name, desc, detalles, cant, urlImagen,reg_token, latitud, longitud);
+            String tokenId = DonacionSharePreferences.getTokenId(getApplicationContext());
+            String telefono = DonacionSharePreferences.getTelefono(getApplicationContext());
+            if(addToStorage){
+                DonacionRepo.guardarDonacion(nombre_User, correo_User, ubi_User,
+                        name, desc, detalles, cant, urlImagen,reg_token, latitud, longitud,tokenId,
+                        telefono);
+            }
 
-
-            Toast.makeText(getApplicationContext(), "Producto Agregado",
+            Toast.makeText(getApplicationContext(), R.string.producto_agregado,
                     Toast.LENGTH_LONG).show();
+            addToStorage = false;
 
             finish();
 
@@ -181,7 +195,7 @@ public class AddProductoActivity extends AppCompatActivity {
 
         if (ActivityCompat.checkSelfPermission(getApplicationContext(),
                 Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            addStorage();
+            //addStorage();
         } else {
             requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
 

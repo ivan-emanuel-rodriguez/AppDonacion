@@ -9,6 +9,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.appdonacion.entidades.DonacionesViewObject;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void iniciarSesion(View view) {
         if (correo.getText().toString().isEmpty() || contrasena.getText().toString().isEmpty()) {
-            Toast.makeText(this, "Error: Debe ingresar un usuario y contraseña validos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.error_auth, Toast.LENGTH_SHORT).show();
         } else {
             mAuth.signInWithEmailAndPassword(correo.getText().toString(), contrasena.getText().toString())
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -76,6 +77,23 @@ public class MainActivity extends AppCompatActivity {
 
 
                                 FirebaseFirestore db = FirebaseFirestore.getInstance();
+                                db.collection("usuarios").document(user.getUid()).get().addOnSuccessListener(result -> {
+                                    if (result.exists()) {
+
+                                        String telefono = result.getString("telefono");
+                                        DonacionSharePreferences.setTelefono(getApplicationContext(),telefono);
+                                        Map<String,Object> map = new HashMap<>();
+                                        map.put("registrationToken",DonacionSharePreferences.getRegistationId(getApplicationContext()));
+                                        map.put("telefono",telefono);
+                                        db.collection("usuarios").document(user.getUid()).set(
+                                                map
+                                        );
+                                    }
+                                });
+
+
+
+                                /*
                                 String token = DonacionSharePreferences.getTokenId(getApplicationContext());
                                 Map<String,Object> map = new HashMap<>();
                                 map.put("registrationToken",DonacionSharePreferences.getRegistationId(getApplicationContext()));
@@ -83,18 +101,18 @@ public class MainActivity extends AppCompatActivity {
                                 String b = DonacionSharePreferences.getCorreo(getApplicationContext());
                                 db.collection("usuarios").document(user.getUid()).set(
                                         map
-                                );
+                                );*/
 
 
                                 //Inicio sesion correctamente
-                                Toast.makeText(getApplicationContext(), "Ha iniciado sesion correctamente", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), R.string.sesión_iniciada, Toast.LENGTH_SHORT).show();
                                 Intent i = new Intent(getApplicationContext(), ListaDonacionActivity.class);
                                 startActivity(i);
                                 //updateUI(user);
                             } else {
                                 // If sign in fails, display a message to the user.
                                 //Log.w(TAG, "signInWithEmail:failure", task.getException());
-                                Toast.makeText(getApplicationContext(), "Error: compruebe su usuario y contraseña",
+                                Toast.makeText(getApplicationContext(), R.string.comprobar_auth,
                                         Toast.LENGTH_SHORT).show();
                                 //updateUI(null);
                             }

@@ -67,8 +67,36 @@
     <string name="cantProduct">Quantity</string>
     <string name="idioma">Change language</string>
     <string name="ingles">English</string>
-    <string name="Español">Spanish</string>
-    <string name="Frances">French</string>
+    <string name="espaniol">Spanish</string>
+    <string name="frances">French</string>
 
-    <string name="btn_mapa">See location</string>
+    <string name="btn_mapa">View location</string>
+    <string name="telefono">Telephone</string>
+    <string name="sesión_iniciada">You have successfully logged in</string>
+    <string name="es_tuyo">This product is yours!</string>
+    <string name="usuario_de_datos">The data user:</string>
+    <string name="su_correo">Mail: </string>
+    <string name="solicito_tu">You requested: </string>
+    <string name="nombre_objeto">Object name</string>
+    <string name="detalle_objeto">Object detail</string>
+    <string name="hablar_x_ws">Talk on whatsapp</string>
+    <string name="nombre_producto">Product Name</string>
+    <string name="description">Description</string>
+    <string name="detalles">Details</string>
+    <string name="cantidad">Quantity</string>
+    <string name="solicitar">Request</string>
+    <string name="name">Name</string>
+    <string name="usuario_notificado">The user has been notified!</string>
+    <string name="producto_agregado">Product added</string>
+    <string name="sesion_cerrada">The session has been closed</string>
+    <string name="no_hay_permisos_camara">You do not have permissions to use the camera</string>
+    <string name="error_auth">Error: You must enter a valid username and password</string>
+    <string name="comprobar_auth">Error: check your username and password</string>
+    <string name="no_tienes_ws">You don`t have whatsapp installed on your phone</string>
+    <string name="usuario_creado">User created.</string>
+    <string name="no_coinciden">Passwords do not match</string>
+    <string name="baja_version">It is not android version 6 or later</string>
+    <string name="auth_failed">Authentication failed.</string>
+
+
 </resources>

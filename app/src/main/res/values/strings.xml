@@ -67,9 +67,35 @@
 
     <string name="idioma">Cambiar idioma</string>
     <string name="ingles">Ingles</string>
-    <string name="Español">Español</string>
-    <string name="Frances">Frances</string>
+    <string name="espaniol">Español</string>
+    <string name="frances">Frances</string>
 
     <string name="btn_mapa">Ver ubicación</string>
+    <string name="telefono">Telefono</string>
+    <string name="sesión_iniciada">Ha iniciado sesion correctamente</string>
+    <string name="es_tuyo">Este producto es tuyo!</string>
+    <string name="usuario_de_datos">El usuario de datos:</string>
+    <string name="su_correo">Correo: </string>
+    <string name="solicito_tu">Solicitó tu:</string>
+    <string name="nombre_objeto">Nombre del objeto</string>
+    <string name="detalle_objeto">Detalle del Objeto</string>
+    <string name="hablar_x_ws">Hablar por whatsapp</string>
+    <string name="nombre_producto">NombreProducto</string>
+    <string name="description">Descripcion</string>
+    <string name="detalles">Detalles</string>
+    <string name="cantidad">Cantidad</string>
+    <string name="solicitar">Solicitar</string>
+    <string name="name">Nombre</string>
+    <string name="usuario_notificado">El usuario ha sido notificado!</string>
+    <string name="producto_agregado">Producto Agregado</string>
+    <string name="sesion_cerrada">Se ha cerrado la sesión</string>
+    <string name="no_hay_permisos_camara">No tienes permisos para utilizar la cámara</string>
+    <string name="error_auth">Error: Debe ingresar un usuario y contraseña validos</string>
+    <string name="comprobar_auth">Error: compruebe su usuario y contraseña</string>
+    <string name="no_tienes_ws">No tienes whatsapp instalado en tu teléfono</string>
+    <string name="usuario_creado">Usuario creado.</string>
+    <string name="no_coinciden">Las contraseñas no coinciden</string>
+    <string name="baja_version">No es la versión 6 de android o posteriores</string>
+    <string name="auth_failed">Authentication failed.</string>
 
 </resources>
