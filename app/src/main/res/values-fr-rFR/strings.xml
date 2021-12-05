@@ -107,6 +107,7 @@
     <string name="no_coinciden">Les mots de passe ne correspondent pas</string>
     <string name="baja_version">Ce n´est pas la version Android 6 ou ultérieure</string>
     <string name="auth_failed">Authentification échouée.</string>
+    <string name="danativos">Dons à proximité</string>
 
 
 </resources>

@@ -70,7 +70,7 @@ public class PedidoActivity extends AppCompatActivity {
                 información_tv.setText("El usuario ");
                 correo_tv.setText("Correo: "+correo);
                 información2_tv.setText("Solicitó tu");
-                nombre_tv.setText(nombre);
+                nombre_tv.setText("Producto: "+nombre);
                 detalle_tv.setText(detalles);
                 Glide.with(PedidoActivity.this.getApplicationContext())
                         .load(imagenUrl)
@@ -167,16 +167,14 @@ public class PedidoActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View v) {
-
-
-
-
+            String cadena = "Hola! me comunico con usted porque me interesó su" +
+                    " producto de donación "+ nombre +", "+detalles +" en la aplicación Donandoando!.";
 
             boolean installed = appInstalledOrNot("com.whatsapp");
             if(installed){
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse("http://api.whatsapp.com/send?phone="+"+549"+Long.parseLong(telefono)+"&text="+
-                        "Producto"));
+                        cadena));
                 startActivity(intent);
             }
             else {

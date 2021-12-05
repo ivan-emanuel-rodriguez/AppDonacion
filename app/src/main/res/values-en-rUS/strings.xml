@@ -108,6 +108,7 @@
     <string name="no_coinciden">Passwords do not match</string>
     <string name="baja_version">It is not android version 6 or later</string>
     <string name="auth_failed">Authentication failed.</string>
+    <string name="danativos">Nearby donations</string>
 
 
 </resources>

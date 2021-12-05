@@ -30,6 +30,7 @@
             android:ems="10"
             android:gravity="center"
             android:text="@string/usuario_de_datos"
+            android:textColor="@color/black"
             android:inputType="text" />
         <TextView
             android:id="@+id/correotv"
@@ -39,6 +40,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="center"
+            android:textColor="@color/black"
             android:text="@string/su_correo"
             android:inputType="text"/>
         <TextView
@@ -48,6 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:textColor="@color/black"
             android:gravity="center"
             android:text="@string/solicito_tu"
             android:inputType="text"/>
@@ -57,6 +60,7 @@
             android:layout_centerHorizontal="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:ems="10"
             android:gravity="center"
             android:text="@string/nombre_objeto"
@@ -65,6 +69,7 @@
             android:id="@+id/detalletv"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
+            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
