@@ -3,9 +3,7 @@ package com.example.appdonacion.ui.detalleDonacion;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -21,7 +19,6 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.example.appdonacion.DonacionSharePreferences;
-import com.example.appdonacion.Pedido;
 import com.example.appdonacion.R;
 import com.example.appdonacion.entidades.DonacionesViewObject;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -33,7 +30,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.util.HashMap;
 import java.util.Map;

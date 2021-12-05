@@ -58,12 +58,21 @@
     <string name="menu_nosotros">Acerca de nosotros</string>
     <string name="logout">Cerrar sesión</string>
 
+    <string name="donadoPor">Donado por:</string>
+    <string name="correoU">Correo:</string>
+    <string name="ubiUsuario">Ubicación:</string>
+    <string name="donacionDe">Articulo donado:</string>
+    <string name="estadoDetalle">Estado/Detalles:</string>
+    <string name="cantidadDet">Cantidad:</string>
+    <string name="descDona">Descripción:</string>
     <string name="nameUser">Nombre Usuario</string>
     <string name="ubiUser">Direccion</string>
     <string name="nameProduct">¿Que va donar?</string>
     <string name="descProduct">Descripción de su donación</string>
     <string name="detailProducto">Detalles(Estado del producto)</string>
     <string name="cantProduct">Cantidad</string>
+    <string name="subirImagen">Subir Imagen</string>
+    <string name="subirDonacion">Subir Donación</string>
 
     <string name="idioma">Cambiar idioma</string>
     <string name="ingles">Ingles</string>

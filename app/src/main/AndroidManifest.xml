@@ -20,7 +20,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".Pedido"
+            android:name=".PedidoActivity"
             android:exported="true" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

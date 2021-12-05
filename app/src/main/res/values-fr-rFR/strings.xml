@@ -59,12 +59,21 @@
     <string name="menu_nosotros">Près de nous</string>
     <string name="logout">Fermer la session</string>
 
+    <string name="donadoPor">Offert par</string>
+    <string name="correoU">Courrier:</string>
+    <string name="ubiUsuario">Emplacement:</string>
+    <string name="donacionDe">Article donné:</string>
     <string name="nameUser">Nom d utilisateur</string>
+    <string name="descDona">La description:</string>
+    <string name="estadoDetalle">Etat/Détails:</string>
+    <string name="cantidadDet">Montant:</string>
     <string name="ubiUser">Adresse</string>
     <string name="nameProduct">Qu allez-vous donner ?</string>
     <string name="descProduct">Description de votre don</string>
     <string name="detailProducto">Détails (état du produit)</string>
     <string name="cantProduct">Quantité</string>
+    <string name="subirImagen">Télécharger une image</string>
+    <string name="subirDonacion">Télécharger un don</string>
 
     <string name="idioma">Changer la langue</string>
     <string name="ingles">Anglais</string>

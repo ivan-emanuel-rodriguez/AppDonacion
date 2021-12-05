@@ -11,7 +11,6 @@ import android.util.Log;
 
 import androidx.core.app.NotificationCompat;
 
-import com.example.appdonacion.entidades.DonacionesViewObject;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
@@ -20,8 +19,6 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 //import java.util.logging.Handler;
 
@@ -106,7 +103,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     }
     public PendingIntent clicknotify(){
         //Intent nf = new Intent(getApplicationContext(),PaginaPrincipalActivity.class);
-        Intent nf = new Intent(getApplicationContext(),Pedido.class);
+        Intent nf = new Intent(getApplicationContext(), PedidoActivity.class);
 
         Bundle bolsa = new Bundle();
         bolsa.putString("detalle","Hola");
