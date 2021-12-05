@@ -17,10 +17,6 @@
             android:icon="@drawable/ic_settings"
             android:title="@string/menu_info" />
         <item
-            android:id="@+id/nav_nosotros"
-            android:icon="@drawable/ic_info_us"
-            android:title="@string/menu_nosotros" />
-        <item
             android:id="@+id/logout"
             android:icon="@drawable/ic_power"
             android:title="@string/logout" />

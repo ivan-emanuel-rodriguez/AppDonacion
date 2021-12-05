@@ -78,12 +78,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="registrarUsuario"
+            android:backgroundTint="@color/colorPrimary"
             android:text="@string/btn_registro" />
         <Button
             android:id="@+id/volverBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="irInicio"
+            android:backgroundTint="@color/colorPrimary"
             android:text="@string/btn_volver" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

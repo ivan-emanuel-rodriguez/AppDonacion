@@ -20,7 +20,6 @@ import androidx.core.app.ActivityCompat;
 
 import com.bumptech.glide.Glide;
 import com.example.appdonacion.DonacionSharePreferences;
-import com.example.appdonacion.Pedido;
 import com.example.appdonacion.R;
 import com.example.appdonacion.repo.DonacionRepo;
 import com.example.appdonacion.ui.maps.LocationProvider;
@@ -110,7 +109,7 @@ public class AddProductoActivity extends AppCompatActivity {
             Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             intent.setType("image/*");
             startActivityForResult(intent, GALLERY_INTENT);
-            /*Intent i = new Intent(AddProductoActivity.this, Pedido.class);
+            /*Intent i = new Intent(AddProductoActivity.this, PedidoActivity.class);
             startActivity(i);*/
         }
     };

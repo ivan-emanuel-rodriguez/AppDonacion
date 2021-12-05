@@ -59,12 +59,23 @@
     <string name="menu_nosotros">About us</string>
     <string name="logout">Sign off</string>
 
+    <string name="donadoPor">Donated by:</string>
+    <string name="correoU">Email:</string>
+    <string name="ubiUsuario">Location:</string>
+    <string name="donacionDe">Donated item:</string>
+    <string name="descDona">Description:</string>
+    <string name="estadoDetalle">State/Details:</string>
+    <string name="cantidadDet">Amount:</string>
     <string name="nameUser">Username</string>
     <string name="ubiUser">Address</string>
     <string name="nameProduct">What will you donate?</string>
     <string name="descProduct">Description of your donation</string>
     <string name="detailProducto">Details (Product Status)</string>
     <string name="cantProduct">Quantity</string>
+    <string name="subirImagen">Upload Image</string>
+    <string name="subirDonacion">Upload Donation</string>
+
+
     <string name="idioma">Change language</string>
     <string name="ingles">English</string>
     <string name="espaniol">Spanish</string>

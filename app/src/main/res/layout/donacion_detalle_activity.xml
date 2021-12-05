@@ -18,65 +18,137 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:context="com.example.appdonacion.fragments.DetalleDonacionesFragment">
-        <TextView
-            android:id="@+id/nombreDetalleId"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/nombre_producto" />
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp">
+            <TextView
+                android:id="@+id/donacionDe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:text="@string/donacionDe"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/nombreDetalleId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"
+                android:text="@string/nombre_producto" />
+        </LinearLayout>
         <ImageView
             android:id="@+id/imagenDetalleId"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_marginBottom="10dp"
             android:src="@drawable/no_image" />
-        <TextView
-            android:id="@+id/descripcionId"
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="5dp"
-            android:text="@string/description" />
-        <TextView
-            android:id="@+id/detalleId"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/descDona"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginRight="10dp"
+                android:text="@string/descDona"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/descripcionId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="5dp"
+                android:textColor="@color/black"
+                android:text="@string/description" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="5dp"
-            android:text="@string/detalles" />
-        <TextView
-            android:id="@+id/cantidadId"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginRight="10dp"
+                android:text="@string/estadoDetalle"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/detalleId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="5dp"
+                android:textColor="@color/black"
+                android:text="@string/detalles" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginEnd="20dp"
-            android:text="@string/cantidad" />
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginRight="10dp"
+                android:text="@string/cantidadDet"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/cantidadId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="20dp"
+                android:textColor="@color/black"
+                android:text="@string/cantidad" />
+        </LinearLayout>
+
         <Button
             android:id="@+id/btn_mapa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#B3B1B1"
+            style="?attr/materialButtonOutlinedStyle"
+            app:strokeColor="@color/black"
+            android:backgroundTint="#F39815"
             android:text="@string/btn_mapa"
             android:textColor="#000000" />
+
         <Button
             android:id="@+id/btn_notifier"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#B3B1B1"
+            android:backgroundTint="#F39815"
             android:text="@string/solicitar"
             android:textColor="#000000" />
+
         <Button
             android:id="@+id/btn_whatsapp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#B3B1B1"
+            android:backgroundTint="#F39815"
             android:text="@string/hablar_x_ws"
-            android:textColor="#000000" />
-<!--        <fragment-->
+            android:textColor="#000000"
+            app:cornerRadius="100dp"/>
+        <!--        <fragment-->
 <!--            android:id="@+id/map"-->
 <!--            android:name="com.google.android.gms.maps.SupportMapFragment"-->
 <!--            android:layout_width="match_parent"-->

@@ -6,22 +6,19 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.appdonacion.ui.nuevaDonacion.AddProductoActivity;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-public class Pedido extends AppCompatActivity {
+public class PedidoActivity extends AppCompatActivity {
     private Button enviar;
     private TextView información;
     private String telefono;
@@ -75,7 +72,7 @@ public class Pedido extends AppCompatActivity {
                 información2_tv.setText("Solicitó tu");
                 nombre_tv.setText(nombre);
                 detalle_tv.setText(detalles);
-                Glide.with(Pedido.this.getApplicationContext())
+                Glide.with(PedidoActivity.this.getApplicationContext())
                         .load(imagenUrl)
                         .fitCenter()
                         .centerCrop()
@@ -87,7 +84,7 @@ public class Pedido extends AppCompatActivity {
                         new OnSuccessListener<Uri>() {
                             @Override
                             public void onSuccess(Uri uri1) {
-                                Glide.with(Pedido.this.getApplicationContext())
+                                Glide.with(PedidoActivity.this.getApplicationContext())
                                         .load(imagenUrl)
                                         .fitCenter()
                                         .centerCrop()
@@ -141,7 +138,7 @@ public class Pedido extends AppCompatActivity {
 
 
 
-        Glide.with(Pedido.this.getApplicationContext())
+        Glide.with(PedidoActivity.this.getApplicationContext())
                 .load(imagenUrl)
                 .fitCenter()
                 .centerCrop()
@@ -153,7 +150,7 @@ public class Pedido extends AppCompatActivity {
                 new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri1) {
-                        Glide.with(Pedido.this.getApplicationContext())
+                        Glide.with(PedidoActivity.this.getApplicationContext())
                                 .load(String.valueOf(uri1))
                                 .fitCenter()
                                 .centerCrop()
@@ -183,7 +180,7 @@ public class Pedido extends AppCompatActivity {
                 startActivity(intent);
             }
             else {
-                Toast.makeText(Pedido.this,
+                Toast.makeText(PedidoActivity.this,
                         R.string.no_tienes_ws , Toast.LENGTH_SHORT).show();
             }
         }
