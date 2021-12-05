@@ -29,6 +29,9 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -43,6 +46,7 @@ public class DonacionDetalleActivity extends AppCompatActivity {
     private Button notifier;
     private Button whatsapp;
     private long numero_whatsapp = 3515193923L;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +55,7 @@ public class DonacionDetalleActivity extends AppCompatActivity {
         notifier.setOnClickListener(EnviarNotificacion);
         whatsapp = (Button)findViewById(R.id.btn_whatsapp);
         whatsapp.setOnClickListener(sendWhatsapp);
+
 
         // add back arrow to toolbar
         if (getSupportActionBar() != null) {
@@ -123,13 +128,6 @@ public class DonacionDetalleActivity extends AppCompatActivity {
         RequestQueue myrequest = Volley.newRequestQueue(getApplicationContext());
         JSONObject json = new JSONObject();
         try {
-            //Toast.makeText(this, donacion.getRegistrationToken(), Toast.LENGTH_LONG).show();
-
-
-            //String token = "ecyujSBbSyG0woPamGlDXF:APA91bGbsJm4U_nDA29EAkii0dhEJH1Ytjj0vXNnLWYOkfQb72qPtw1jtPaOE7u5Hp2KjvpG6ePROUiovJxI9PyZyrDEGDXPYyeUR0SCJWxM6ezeuOQxuZRBPjoqfVrdm8RR4VmqV9Ck";
-            //String token = DonacionSharePreferences.getRegistationId(getApplicationContext());
-            String compareA =donacion.getRegistrationToken();
-            String compareB = DonacionSharePreferences.getRegistationId(getApplicationContext());
             if(donacion.getRegistrationToken().equals(DonacionSharePreferences.getRegistationId(getApplicationContext()))){
                 Toast.makeText(this, "Este producto es tuyo!", Toast.LENGTH_LONG).show();
             }
@@ -137,20 +135,36 @@ public class DonacionDetalleActivity extends AppCompatActivity {
                 String token = donacion.getRegistrationToken();
                 json.put("to",token);
                 JSONObject notificacion = new JSONObject();
+
+
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                Map<String, Object> map = new HashMap<>();
+                map.put("nombreUsuario", DonacionSharePreferences.getUsuario(getApplicationContext()));
+                map.put("correo", DonacionSharePreferences.getCorreo(getApplicationContext()));
+                map.put("nombre", donacion.getNombre());
+                map.put("descripcion", donacion.getInfo());
+                map.put("detalles", donacion.getDescripcionDetallada());
+                map.put("imagen", donacion.getUrlImagen());
+                map.put("tokenID", donacion.getTokenID());
+
+                db.collection("notificacion").document(donacion.getTokenID()).set(
+                        map
+                );
+                notificacion.put("imagen",donacion.getUrlImagen());
+                notificacion.put("telefono", 1123456789);
+/*
                 notificacion.put("nombre",donacion.getNombre());
                 notificacion.put("detalle", donacion.getInfo());
                 notificacion.put("imagen", donacion.getUrlImagen());
-                notificacion.put("correo", DonacionSharePreferences.getCorreo(getApplicationContext()));
+                notificacion.put("correo", )DonacionSharePreferences.getCorreo(getApplicationContext());
                 notificacion.put("usuario", DonacionSharePreferences.getUsuario(getApplicationContext()));
                 notificacion.put("telefono", 1123456789);
-
-
                 String imagen = donacion.getUrlImagen();
                 String n = donacion.getNombre();
                 String d = donacion.getDescripcionDetallada();
                 String c = DonacionSharePreferences.getCorreo(getApplicationContext());
                 String u = DonacionSharePreferences.getUsuario(getApplicationContext());
-
+                */
                 json.put("data",notificacion);
                 String URL = "https://fcm.googleapis.com/fcm/send";
                 JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST,URL,json,null,null){
@@ -163,6 +177,8 @@ public class DonacionDetalleActivity extends AppCompatActivity {
                     }
                 };
                 myrequest.add(request);
+                Toast.makeText(this, "El usuario ha sido notificado!", Toast.LENGTH_LONG).show();
+
             }
 
         }

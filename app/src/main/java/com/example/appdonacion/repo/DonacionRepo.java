@@ -34,6 +34,7 @@ public abstract class DonacionRepo {
                     String direccion = document.getString("direccion");
                     Double latitud = document.getDouble("latitud");
                     Double longitud = document.getDouble("longitud");
+                    String tokenId = document.getString("tokenID");
 
                     DonacionesViewObject donacion = new DonacionesViewObject();
 
@@ -46,6 +47,7 @@ public abstract class DonacionRepo {
                     donacion.setRegistrationToken(reg_token);
                     donacion.setLatitud(latitud);
                     donacion.setLongitud(longitud);
+                    donacion.setTokenID(tokenId);
 
 //                    donacion.setCantidad(cantidad);
 
@@ -77,7 +79,8 @@ public abstract class DonacionRepo {
     public static void guardarDonacion(String nombre_User, String correo_User,
                                        String ubi_User, String name, String desc,
                                        String detalles,String cant, String url,
-                                       String reg_token, Double latitud, Double longitud) {
+                                       String reg_token, Double latitud, Double longitud,
+                                       String tokenId) {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -93,6 +96,7 @@ public abstract class DonacionRepo {
         map.put("registrationToken", reg_token);
         map.put("latitud", latitud);
         map.put("longitud", longitud);
+        map.put("tokenID", tokenId);
 
         db.collection("producto").document().set(
                 map

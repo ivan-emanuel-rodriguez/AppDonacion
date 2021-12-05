@@ -14,6 +14,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class RegistrarseActivity extends AppCompatActivity {
 
@@ -62,10 +66,19 @@ public class RegistrarseActivity extends AppCompatActivity {
                                     Toast.makeText(getApplicationContext(), "Usuario creado.", Toast.LENGTH_SHORT).show();
                                     FirebaseUser user = mAuth.getCurrentUser();
                                     //Shared preferences
+                                    DonacionSharePreferences.setCorreo(getApplicationContext(), correo.getText().toString());
+                                    DonacionSharePreferences.setNombreUsuario(getApplicationContext(), user.getDisplayName());
+                                    DonacionSharePreferences.setRecordarUser(getApplicationContext(), true);
+                                    DonacionSharePreferences.setTokenId(getApplicationContext(), user.getUid());
 
 
                                     //ir a la base de usuarios, y guardar uno nuevo con el user uid ,ubicación y lo que quieran
-
+                                    FirebaseFirestore db = FirebaseFirestore.getInstance();
+                                    Map<String,Object> map = new HashMap<>();
+                                    map.put("registrationToken",DonacionSharePreferences.getRegistationId(getApplicationContext()));
+                                    db.collection("usuarios").document(user.getUid()).set(
+                                            map
+                                    );
 
                                     //DonacionSharePreferences.setUsuario(getApplicationContext(),
                                     //nombreUsuario.getText().toString(),localidad.getText().toString(),correo.getText().toString());

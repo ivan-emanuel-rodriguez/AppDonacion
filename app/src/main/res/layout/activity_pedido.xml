@@ -42,16 +42,6 @@
             android:text="Correo: "
             android:inputType="text"/>
         <TextView
-            android:id="@+id/telefonotv"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="center"
-            android:text="Teléfono: "
-            android:inputType="text"/>
-        <TextView
             android:id="@+id/información2tv"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
@@ -59,7 +49,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="center"
-            android:text="Solicitó tu "
+            android:text="Solicitó tu:"
             android:inputType="text"/>
         <TextView
             android:id="@+id/nombretv"
