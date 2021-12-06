@@ -108,6 +108,7 @@
     <string name="baja_version">Ce n´est pas la version Android 6 ou ultérieure</string>
     <string name="auth_failed">Authentification échouée.</string>
     <string name="danativos">Dons à proximité</string>
+    <string name="error">une erreur s´est produite</string>
 
 
 </resources>

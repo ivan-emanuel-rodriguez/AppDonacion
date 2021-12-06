@@ -4,16 +4,13 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -22,13 +19,8 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-
-import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ListaDonacionActivity extends AppCompatActivity {
@@ -55,7 +47,6 @@ public class ListaDonacionActivity extends AppCompatActivity {
         TextView correoTextView = (TextView) headerView.findViewById(R.id.emailTextView);
         TextView nombreTextView = (TextView) headerView.findViewById(R.id.nameTextView);
 
-
         imageView = (CircleImageView) headerView.findViewById(R.id.profile_image);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,22 +64,13 @@ public class ListaDonacionActivity extends AppCompatActivity {
                         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                         startActivityForResult(intent,TOMAR_FOTO);
                     }
-
-                //Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                //startActivityForResult(intent,TOMAR_FOTO);
-
             }
-
-                //Toast.makeText(ListaDonacionActivity.this, "Soy una Imagen", Toast.LENGTH_SHORT).show();
             }
         });
 
         nombreTextView.setText(DonacionSharePreferences.getUsuario(getApplicationContext()));
-
         correoTextView.setText(DonacionSharePreferences.getCorreo(getApplicationContext()));
 
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_mapa, R.id.nav_ajustes, R.id.logout)
                 .setDrawerLayout(drawer)
@@ -109,7 +91,6 @@ public class ListaDonacionActivity extends AppCompatActivity {
 
 
     public void cerrarSesion() {
-
         if (mAuth.getCurrentUser() != null) {
             mAuth.signOut();
             Toast.makeText(getApplicationContext(), R.string.sesion_cerrada, Toast.LENGTH_SHORT).show();
@@ -117,7 +98,6 @@ public class ListaDonacionActivity extends AppCompatActivity {
             startActivity(i);
             finish();
         }
-
     }
 
     @Override

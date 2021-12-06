@@ -5,18 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.appdonacion.entidades.DonacionesViewObject;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
     private EditText contrasena;
     private FirebaseAuth mAuth;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,16 +30,12 @@ public class MainActivity extends AppCompatActivity {
         correo = findViewById(R.id.correo);
         contrasena = findViewById(R.id.contrasena);
 
-
-        // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
-
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
             currentUser.reload();
@@ -54,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(i);
         }
     }
-
 
     public void iniciarSesion(View view) {
         if (correo.getText().toString().isEmpty() || contrasena.getText().toString().isEmpty()) {
@@ -68,8 +58,6 @@ public class MainActivity extends AppCompatActivity {
                                 // Sign in success, update UI with the signed-in user's information
                                 //Log.d(TAG, "signInWithEmail:success");
                                 FirebaseUser user = mAuth.getCurrentUser();
-                                String cadena = user.getUid();
-                                //String cadena2 = user.getIdToken(true).getResult().getToken();
                                 DonacionSharePreferences.setCorreo(getApplicationContext(), correo.getText().toString());
                                 DonacionSharePreferences.setNombreUsuario(getApplicationContext(), user.getDisplayName());
                                 DonacionSharePreferences.setRecordarUser(getApplicationContext(), true);
@@ -91,42 +79,23 @@ public class MainActivity extends AppCompatActivity {
                                     }
                                 });
 
-
-
-                                /*
-                                String token = DonacionSharePreferences.getTokenId(getApplicationContext());
-                                Map<String,Object> map = new HashMap<>();
-                                map.put("registrationToken",DonacionSharePreferences.getRegistationId(getApplicationContext()));
-                                String a = DonacionSharePreferences.getRegistationId(getApplicationContext());
-                                String b = DonacionSharePreferences.getCorreo(getApplicationContext());
-                                db.collection("usuarios").document(user.getUid()).set(
-                                        map
-                                );*/
-
-
                                 //Inicio sesion correctamente
                                 Toast.makeText(getApplicationContext(), R.string.sesión_iniciada, Toast.LENGTH_SHORT).show();
                                 Intent i = new Intent(getApplicationContext(), ListaDonacionActivity.class);
                                 startActivity(i);
-                                //updateUI(user);
                             } else {
                                 // If sign in fails, display a message to the user.
                                 //Log.w(TAG, "signInWithEmail:failure", task.getException());
                                 Toast.makeText(getApplicationContext(), R.string.comprobar_auth,
                                         Toast.LENGTH_SHORT).show();
-                                //updateUI(null);
                             }
                         }
                     });
         }
-
-
     }
-
 
     public void irRegistrarse(View view) {
         Intent i = new Intent(this, RegistrarseActivity.class);
         startActivity(i);
-
     }
 }

@@ -109,6 +109,7 @@
     <string name="baja_version">It is not android version 6 or later</string>
     <string name="auth_failed">Authentication failed.</string>
     <string name="danativos">Nearby donations</string>
+    <string name="error">Se ha producido un error</string>
 
 
 </resources>

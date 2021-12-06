@@ -10,9 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
@@ -41,7 +39,7 @@ public class DonacionDetalleActivity extends AppCompatActivity {
     private Button notifier;
     private Button whatsapp;
     private Button mapa;
-    //private long numero_whatsapp = 3515193923L;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +51,6 @@ public class DonacionDetalleActivity extends AppCompatActivity {
         whatsapp = (Button)findViewById(R.id.btn_whatsapp);
         whatsapp.setOnClickListener(sendWhatsapp);
 
-        // add back arrow to toolbar
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -77,9 +74,6 @@ public class DonacionDetalleActivity extends AppCompatActivity {
         textDetalles.setText(donacion.getDetalles());
         textCantidad.setText(donacion.getCantidad());
 
-
-//        donacion.getLongitud();
-//        donacion.getLatitud();
         if (!donacion.getUrlImagen().equals("")) {
 
             Glide.with(getApplicationContext())
@@ -94,22 +88,12 @@ public class DonacionDetalleActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            finish(); // close this activity and return to preview activity (if there is any)
+            finish();
         }
         return super.onOptionsItemSelected(item);
     }
 
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
-
-        /**
-         * Manipulates the map once available.
-         * This callback is triggered when the map is ready to be used.
-         * This is where we can add markers or lines, add listeners or move the camera.
-         * In this case, we just add a marker near Sydney, Australia.
-         * If Google Play services is not installed on the device, the user will be prompted to
-         * install it inside the SupportMapFragment. This method will only be triggered once the
-         * user has installed Google Play services and returned to the app.
-         */
         @Override
         public void onMapReady(GoogleMap googleMap) {
             LatLng sydney = new LatLng(-34, 151);
@@ -124,8 +108,6 @@ public class DonacionDetalleActivity extends AppCompatActivity {
             Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
                     Uri.parse("geo:"+donacion.getLatitud().toString()+","+donacion.getLongitud().toString()
                             +"?z=16&q="+donacion.getLatitud().toString()+","+donacion.getLongitud().toString()+"(MiUbicacion)"));
-            //Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
-            //        Uri.parse("geo:41.3825581,2.1704375?z=16&q=41.3825581,2.1704375(Barcelona)"));
             intent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
             startActivity(intent);
         }
@@ -166,25 +148,7 @@ public class DonacionDetalleActivity extends AppCompatActivity {
                 );
                 notificacion.put("imagen",donacion.getUrlImagen());
                 notificacion.put("telefono", donacion.getTelefono());
-/*
 
-
-
-
-                notificacion.put("nombre",donacion.getNombre());
-                notificacion.put("detalle", donacion.getInfo());
-                notificacion.put("imagen", donacion.getUrlImagen());
-                notificacion.put("correo", DonacionSharePreferences.getCorreo(getApplicationContext()));
-                notificacion.put("usuario", DonacionSharePreferences.getUsuario(getApplicationContext()));
-                notificacion.put("telefono", 1123456789);
-
-
-                String imagen = donacion.getUrlImagen();
-                String n = donacion.getNombre();
-                String d = donacion.getDescripcionDetallada();
-                String c = DonacionSharePreferences.getCorreo(getApplicationContext());
-                String u = DonacionSharePreferences.getUsuario(getApplicationContext());
- */
                 json.put("data",notificacion);
                 String URL = "https://fcm.googleapis.com/fcm/send";
                 JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST,URL,json,null,null){

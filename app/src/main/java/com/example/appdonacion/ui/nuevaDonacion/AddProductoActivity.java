@@ -14,10 +14,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-
 import com.bumptech.glide.Glide;
 import com.example.appdonacion.DonacionSharePreferences;
 import com.example.appdonacion.R;
@@ -47,17 +45,13 @@ public class AddProductoActivity extends AppCompatActivity {
     private EditText nombreUser;
     private EditText detailDon;
     private boolean addToStorage;
-
-
     private static final int MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_product);
 
-        // add back arrow to toolbar
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -89,7 +83,7 @@ public class AddProductoActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            finish(); // close this activity and return to preview activity (if there is any)
+            finish();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -109,8 +103,6 @@ public class AddProductoActivity extends AppCompatActivity {
             Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             intent.setType("image/*");
             startActivityForResult(intent, GALLERY_INTENT);
-            /*Intent i = new Intent(AddProductoActivity.this, PedidoActivity.class);
-            startActivity(i);*/
         }
     };
 
@@ -139,7 +131,6 @@ public class AddProductoActivity extends AppCompatActivity {
                                                                                        .fitCenter()
                                                                                        .centerCrop()
                                                                                        .into(myImageView);
-                                                                               //addToStorage(java.lang.String.valueOf(uri1));
                                                                                urlImagen = String.valueOf(uri1);
                                                                            }
                                                                        }
@@ -153,12 +144,9 @@ public class AddProductoActivity extends AppCompatActivity {
 
     private void addStorage() {
         addToStorage = true;
-
         LocationProvider.requestCurrentLocation(getApplicationContext(), location -> {
-
             double latitud = -34.7747628;
             double longitud = -58.2697733;
-
 
             if (location != null) {
                 latitud = location.getLatitude();
@@ -186,7 +174,6 @@ public class AddProductoActivity extends AppCompatActivity {
             addToStorage = false;
 
             finish();
-
         });
     }
 
@@ -194,7 +181,6 @@ public class AddProductoActivity extends AppCompatActivity {
 
         if (ActivityCompat.checkSelfPermission(getApplicationContext(),
                 Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            //addStorage();
         } else {
             requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
 
@@ -207,7 +193,7 @@ public class AddProductoActivity extends AppCompatActivity {
         switch (requestCode) {
             case MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION: {
                 if (grantResults != null && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    addStorage();
+                    return;
                 } else {
                     finish();
                 }

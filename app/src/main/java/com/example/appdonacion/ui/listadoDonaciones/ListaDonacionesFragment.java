@@ -5,14 +5,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.appdonacion.DonacionSharePreferences;
 import com.example.appdonacion.R;
 import com.example.appdonacion.adaptadores.AdaptadorDonaciones;
 import com.example.appdonacion.entidades.DonacionesViewObject;
@@ -23,9 +19,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-/**
- * create an instance of this fragment.
- */
+
 public class ListaDonacionesFragment extends Fragment {
 
     private static final int NEW_DONACION = 213;
@@ -34,7 +28,6 @@ public class ListaDonacionesFragment extends Fragment {
     AdaptadorDonaciones adapter;
 
     public ListaDonacionesFragment() {
-        // Required empty public constructor
     }
 
     @Override
@@ -54,7 +47,6 @@ public class ListaDonacionesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View vista = inflater.inflate(R.layout.fragment_lista_donaciones, container, false);
 
         FloatingActionButton fab = vista.findViewById(R.id.fab);
@@ -72,9 +64,6 @@ public class ListaDonacionesFragment extends Fragment {
 
         //metodo para cargar la lista de donaciones
         llenarDonaciones();
-
-        //TextView tituloTextView = vista.findViewById(R.id.textUsuarioId);
-        //tituloTextView.setText(DonacionSharePreferences.getUsuario(getContext()));
 
         return vista;
     }

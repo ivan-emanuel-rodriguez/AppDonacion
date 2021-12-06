@@ -47,7 +47,6 @@ public class DonacionesViewObject implements Serializable {
     }
 
     public DonacionesViewObject() {
-
     }
 
     public DonacionesViewObject(String nombre, String info, String descripcionDetallada, int imagenId, int imagenDetallada) {

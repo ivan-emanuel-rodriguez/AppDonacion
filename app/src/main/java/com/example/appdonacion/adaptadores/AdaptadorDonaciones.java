@@ -6,14 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
 import com.example.appdonacion.R;
 import com.example.appdonacion.entidades.DonacionesViewObject;
-
 import java.util.ArrayList;
 
 public class AdaptadorDonaciones extends RecyclerView.Adapter<AdaptadorDonaciones.ViewHolderDonaciones> implements View.OnClickListener {
@@ -41,7 +38,6 @@ public class AdaptadorDonaciones extends RecyclerView.Adapter<AdaptadorDonacione
         holder.etiquetaCorreo.setText(listaDonaciones.get(position).getCorreo());
         holder.etiquetaNombreUsuario.setText(listaDonaciones.get(position).getNombreUsuario());
         holder.etiquetaUbiUsuario.setText(listaDonaciones.get(position).getNombreUbi());
-//        holder.foto.setImageResource(listaDonaciones.get(position).getImagenId());
 
         if (!listaDonaciones.get(position).getUrlImagen().equals("")) {
             Glide.with(context)
@@ -71,7 +67,7 @@ public class AdaptadorDonaciones extends RecyclerView.Adapter<AdaptadorDonacione
 
     }
 
-    public class ViewHolderDonaciones extends RecyclerView.ViewHolder {
+    public static class ViewHolderDonaciones extends RecyclerView.ViewHolder {
 
         TextView etiquetaNombre, etiquetaCorreo, etiquetaNombreUsuario, etiquetaUbiUsuario ;
         ImageView foto;

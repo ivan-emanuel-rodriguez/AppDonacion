@@ -2,13 +2,10 @@ package com.example.appdonacion.repo;
 
 
 import android.content.Context;
-
-import com.example.appdonacion.DonacionSharePreferences;
 import com.example.appdonacion.R;
 import com.example.appdonacion.entidades.DonacionesViewObject;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;

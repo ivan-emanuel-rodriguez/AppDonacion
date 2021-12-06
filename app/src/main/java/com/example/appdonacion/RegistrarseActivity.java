@@ -5,26 +5,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.appdonacion.entidades.DonacionesViewObject;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-
 import java.util.HashMap;
 import java.util.Map;
 
 public class RegistrarseActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-
     private EditText correo, nombreUsuario, localidad, contrasena, contrasenaConfirmacion, telefono;
 
     @Override
@@ -40,17 +34,11 @@ public class RegistrarseActivity extends AppCompatActivity {
         contrasena = findViewById(R.id.contrasena);
         contrasenaConfirmacion = findViewById(R.id.contrasenaConfirmacion);
         telefono = findViewById(R.id.telefono_et);
-
     }
-
 
     public void onStart() {
         super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        //if(currentUser != null){
-        //    reload();
-        //}
     }
 
     public void registrarUsuario(View view) {
@@ -75,14 +63,8 @@ public class RegistrarseActivity extends AppCompatActivity {
                                     DonacionSharePreferences.setTokenId(getApplicationContext(), user.getUid());
                                     DonacionSharePreferences.setTelefono(getApplicationContext(), telefono.getText().toString());
 
-
                                     //ir a la base de usuarios, y guardar uno nuevo con el user uid ,ubicación y lo que quieran
                                     FirebaseFirestore db = FirebaseFirestore.getInstance();
-
-
-
-
-
 
                                     Map<String,Object> map = new HashMap<>();
                                     map.put("registrationToken",DonacionSharePreferences.getRegistationId(getApplicationContext()));
@@ -91,19 +73,10 @@ public class RegistrarseActivity extends AppCompatActivity {
                                             map
                                     );
 
-
-                                    //DonacionSharePreferences.setUsuario(getApplicationContext(),
-                                    //nombreUsuario.getText().toString(),localidad.getText().toString(),correo.getText().toString());
-                                    //DonacionSharePreferences.setNombreUsuario(getApplicationContext(), user.getDisplayName());
-                                    //DonacionSharePreferences.setRecordarUser(getApplicationContext(), true);
                                     Intent i = new Intent(getApplicationContext(), ListaDonacionActivity.class);
                                     startActivity(i);
-                                    //updateUI(user);
                                 } else {
-                                    // If sign in fails, display a message to the user.
-                                    //Log.w(TAG, "createUserWithEmail:failure", task.getException());
                                     Toast.makeText(getApplicationContext(), R.string.auth_failed, Toast.LENGTH_SHORT).show();
-                                    //updateUI(null);
                                 }
                             }
                         });
@@ -117,6 +90,5 @@ public class RegistrarseActivity extends AppCompatActivity {
     public void irInicio(View view) {
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
-
     }
 }

@@ -80,7 +80,6 @@ public abstract class DonacionSharePreferences {
     }
     public static String getRegistationId(Context context) {
         android.content.SharedPreferences sharedPrefRead = context.getSharedPreferences(REGISTATION_ID, Context.MODE_PRIVATE);
-        //String tok = sharedPrefRead.getString(REGISTATION_ID, "");
         return sharedPrefRead.getString(REGISTATION_ID, "");
     }
 
@@ -92,7 +91,6 @@ public abstract class DonacionSharePreferences {
     }
     public static String getTelefono(Context context) {
         android.content.SharedPreferences sharedPrefRead = context.getSharedPreferences(TELEFONO, Context.MODE_PRIVATE);
-        //String tok = sharedPrefRead.getString(REGISTATION_ID, "");
         return sharedPrefRead.getString(TELEFONO, "");
     }
 }
